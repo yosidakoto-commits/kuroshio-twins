@@ -267,7 +267,6 @@
   .inquire-inner { max-width: 720px; margin: 0 auto; text-align: center; }
   .inquire-sub { font-size: 14px; color: var(--text2); line-height: 1.7; margin-bottom: 48px; }
   
-  /* 实装真实可靠的邮件转发底层表单 */
   .inquire-form { background: var(--bg3); border: 1px solid var(--border2); border-radius: 24px; padding: 48px; text-align: left; display: block; }
   .form-group { margin-bottom: 24px; }
   .form-label { display: block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); margin-bottom: 10px; }
@@ -318,7 +317,6 @@
 
 <div id="google_translate_element"></div>
 
-<!-- 导航栏 -->
 <nav>
   <div class="nav-brand">
     <span class="nav-title">THE KUROSHIO TWINS</span>
@@ -333,7 +331,6 @@
   </div>
 </nav>
 
-<!-- 语言选择面板 -->
 <div class="lang-overlay" id="langOverlay">
   <div class="lang-modal-box">
     <button class="lang-modal-close" onclick="toggleLangOverlay(false)">✕</button>
@@ -353,7 +350,6 @@
   </div>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-horizon"></div>
@@ -374,7 +370,6 @@
   <div class="hero-scroll"><div class="scroll-line"></div>SCROLL</div>
 </section>
 
-<!-- PARADOX SOLVED -->
 <section class="paradox">
   <div class="reveal">
     <span class="section-label">The Oceanfront Paradox Solved · 破解海景资产的永恒矛盾</span>
@@ -407,12 +402,10 @@
   </div>
 </section>
 
-<!-- WIDE QUOTE -->
 <div class="wide-quote">
   <div class="quote-text reveal">“在日本，海岸线高台的别墅建筑许可<em>已被事实上面向未来永久封印</em>——<br>黑潮双墅，是太平洋向您发出的最后一张高台领权入场券。”</div>
 </div>
 
-<!-- LIFESTYLE EXPANDED SECTION -->
 <section>
   <div class="lifestyle-header reveal">
     <span class="section-label">Premium Lifestyle Destination · 顶级奢旅活动圈</span>
@@ -458,7 +451,7 @@
     <div class="lifestyle-card reveal">
       <div class="lifestyle-top-info">
         <span class="lifestyle-icon">🥾</span>
-        <h4>熊野古道 · 唤醒朝圣灵性</h4>
+        <h4>熊野古道 · 唤醒朝盛灵性</h4>
         <p>毗邻联合国教科文组织世界文化遗产“熊野古道”。从庄园出发可轻松前往这片延续千年的圣地。漫步于长满青苔、巨杉参天的参拜古道中，洗涤都市浮躁，为您和贵宾提供无可替代的心灵庇护所。</p>
       </div>
     </div>
@@ -475,7 +468,6 @@
 
 <div class="divider"></div>
 
-<!-- VILLAS SECTION -->
 <section class="villas-section">
   <div class="villas-intro">
     <div class="villas-intro-text reveal">
@@ -528,7 +520,6 @@
   </div>
 </section>
 
-<!-- MANAGEMENT -->
 <section>
   <span class="section-label reveal">跨国无感远程托管 · 资产看板</span>
   <h2 class="section-title reveal">身在海外，<em>资产依然巍然运转</em></h2>
@@ -571,15 +562,15 @@
 
 <div class="divider"></div>
 
-<!-- INQUIRE (实装 Google 邮件发送的系统表单) -->
 <section class="inquire-section" id="inquire">
   <div class="inquire-inner">
     <span class="section-label reveal">专属席位定向申购 · Private Registry</span>
     <h2 class="section-title reveal">申请 VIP 专属资产访问权限</h2>
     <div class="inquire-sub reveal">黑潮双墅（The Kuroshio Twins）仅面向通过定向初审的高净值买家非公开披露详情。提交下表后，您的资深私人资产顾问将在24小时内为您提供高精度数字化资料包，并安排一对一非公开绝密商谈。</div>
     
-    <!-- 实装异步提交的表单容器 -->
     <form class="inquire-form reveal" id="kuroshioForm">
+      <input type="text" name="_gotcha" style="display:none" />
+      
       <div class="form-grid">
         <div class="form-group">
           <label class="form-label">您的贵姓尊名</label>
@@ -600,14 +591,12 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span class="footer-brand">THE KUROSHIO TWINS</span>
   <span>和歌山县·须美江 · 高台庄园 · 永久产权资产</span>
   <span>© 2026 · For the Chosen One.</span>
 </footer>
 
-<!-- 语言与动态翻译逻辑控制 -->
 <script>
 const languages = [
   { code: 'zh-CN', name: '简体中文' },
@@ -694,19 +683,17 @@ function googleTranslateElementInit() {
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<!-- 核心脚本：Formspree 智能无刷新安全发送逻辑 -->
 <script>
-  // 【重要】请将下方代码中的 'YOUR_FORMSPREE_ID' 替换为您注册得到的 8 位专属密钥字符串
-  const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORMSPREE_ID";
+  // 已成功嵌入你的专属密钥 mwvzdbrr
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwvzdbrr";
 
   document.getElementById('kuroshioForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // 阻止页面跳转
+    event.preventDefault();
     
     const form = this;
     const button = document.getElementById('submitBtn');
     const formData = new FormData(form);
     
-    // 视觉反馈：开始发送中
     button.textContent = 'Sending... / 递交中...';
     button.disabled = true;
     
@@ -719,24 +706,23 @@ function googleTranslateElementInit() {
     })
     .then(response => {
       if (response.ok) {
-        // 视觉反馈：发送成功
         button.textContent = '✓ Submitted / 申请已递交';
         button.style.background = '#3ecf8e';
         button.style.color = '#ffffff';
-        form.reset(); // 自动清空用户填过的内容，防止重复提交
+        form.reset();
       } else {
         response.json().then(data => {
           if (Object.hasOwn(data, 'errors')) {
             alert("提交出错: " + data.errors.map(error => error.message).join(", "));
           } else {
-            alert("服务器返回异常，请稍后重试。");
+            alert("系统繁忙，请稍后重试。");
           }
           resetButton(button);
         });
       }
     })
     .catch(error => {
-      alert("网络错误，数据发送失败，请检查网络连接。");
+      alert("网络错误，请稍后重试。");
       resetButton(button);
     });
   });
