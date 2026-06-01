@@ -44,10 +44,10 @@
     top: 0 !important;
   }
 
-  /* 隐藏Google自带的臃肿工具栏与弹窗，保持奢华纯净感 */
+  /* 优雅隐藏Google工具栏，同时阻止iOS Safari上可能出现的排版错位 */
   .skiptranslate, .goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
   #google_translate_element { display: none !important; }
-  body { position: static !important; }
+  body { position: static !important; top: 0 !important; }
 
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
@@ -633,7 +633,7 @@
       <div class="villa-name">Villa A</div>
       <div class="villa-role">私密高台行宫 ／ Private Sanctuary</div>
       <div class="villa-desc">
-        <p>它既是您守望太平洋的隐秘城堡，也是接待核心圈层的高规格社交王座。离网微电网系统在您离境日本期间，会全程自动调控温湿度，精密呵护纯木建筑。</p>
+        <p>它既是您守望太平洋的隐秘城堡，也是接待核心圈层的高规格社交王座。离网微电网系统在您离境日本期间，会全程自动调控温湿度，精密痕护纯木建筑。</p>
       </div>
       <div class="villa-footer">100% 独立产权 · 视线完全分离设计 · 智能微电网守护</div>
     </div>
@@ -741,7 +741,7 @@
 </footer>
 
 <script>
-// 全球核心主要语种字典
+// 全球核心 16 种高净值主要语言字典
 const languages = [
   { code: 'zh-CN', name: '简体中文' },
   { code: 'zh-TW', name: '繁體中文' },
@@ -760,6 +760,17 @@ const languages = [
   { code: 'vi', name: 'Tiếng Việt' },
   { code: 'id', name: 'Bahasa Indonesia' }
 ];
+
+// 初始化检查当前的网址中是否有已经选择的语言（针对iPhone刷新后的状态显示修复）
+document.addEventListener("DOMContentLoaded", () => {
+  const match = window.location.hash.match(/googtrans\(zh-CN\|([^)]+)\)/);
+  if (match && match[1]) {
+    const currentLang = languages.find(l => l.code === match[1]);
+    if (currentLang) {
+      document.getElementById('current-lang-name').textContent = currentLang.name;
+    }
+  }
+});
 
 function toggleLangOverlay(show) {
   const overlay = document.getElementById('langOverlay');
@@ -787,7 +798,7 @@ function renderLanguageList(filterText = '') {
     btn.className = 'lang-select-btn';
     btn.textContent = lang.name;
     btn.onclick = () => {
-      executeGoogleTranslate(lang.code, lang.name);
+      executeUniversalTranslate(lang.code, lang.name);
       toggleLangOverlay(false);
     };
     container.appendChild(btn);
@@ -799,22 +810,29 @@ function filterLanguages() {
   renderLanguageList(text);
 }
 
-// 核心修正：加入安全防御，防止引擎未加载完成时触发 undefined
-function executeGoogleTranslate(langCode, langName) {
+/**
+ * 核心大升级：全端通用翻译执行器
+ * 完美绕过 iPhone Safari 浏览器对动态脚本修改选择器的“伪点击”封锁
+ */
+function executeUniversalTranslate(langCode, langName) {
+  document.getElementById('current-lang-name').textContent = langName;
+  
+  // 1. 先尝试用传统的PC端模拟点击方案（如果已经就绪，速度最快）
   const selectEl = document.querySelector('.goog-te-combo');
-  if (selectEl) {
+  if (selectEl && navigator.userAgent.indexOf('iPhone') === -1 && navigator.userAgent.indexOf('iPad') === -1) {
     selectEl.value = langCode;
     selectEl.dispatchEvent(new Event('change'));
-    document.getElementById('current-lang-name').textContent = langName;
   } else {
-    // 降级应急策略：如果底层未就绪，使用官方标准的 URL 传参哈希强制网页刷新翻译
-    const currentUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
-    window.location.href = currentUrl + '#googtrans(zh-CN|' + langCode + ')';
+    // 2. 针对 iPhone、iPad 以及 PC未加载完的场景，直接使用绝对安全的 URL Hash 强制刷新法
+    // 这是苹果生态唯一 100% 豁免且无条件触发原生翻译引擎的白名单途径
+    const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.search;
+    window.location.href = cleanUrl + '#googtrans(zh-CN|' + langCode + ')';
+    
+    // 针对部分老款 iOS 系统，追加强制重载以激活底层
     window.location.reload();
   }
 }
 
-// 核心修正：解除 includedLanguages 限制，使用全球通用加速节点
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'zh-CN',
