@@ -44,7 +44,6 @@
     top: 0 !important;
   }
 
-  /* 优雅隐藏Google工具栏，同时阻止iOS Safari上可能出现的排版错位 */
   .skiptranslate, .goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
   #google_translate_element { display: none !important; }
   body { position: static !important; top: 0 !important; }
@@ -88,12 +87,7 @@
     cursor: pointer;
     transition: all 0.3s var(--ease);
   }
-
-  .lang-trigger-btn:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.25);
-    transform: translateY(-1px);
-  }
+  .lang-trigger-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); transform: translateY(-1px); }
 
   .nav-cta {
     font-size: 12px;
@@ -108,7 +102,7 @@
   }
   .nav-cta:hover { background: var(--accent); color: white; transform: scale(1.03); }
 
-  /* ===== 全球全语种全屏选择面板 ===== */
+  /* ===== 语言选择面板 ===== */
   .lang-overlay {
     position: fixed;
     inset: 0;
@@ -124,178 +118,54 @@
     transition: opacity 0.4s var(--ease);
     padding: 40px 24px;
   }
+  .lang-overlay.open { opacity: 1; pointer-events: auto; }
 
-  .lang-overlay.open {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .lang-modal-box {
-    width: 100%;
-    max-width: 900px;
-    max-height: 85vh;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    position: relative;
-  }
-
-  .lang-modal-close {
-    position: absolute;
-    top: -10px; right: 0;
-    background: transparent;
-    border: none;
-    color: var(--text3);
-    font-size: 28px;
-    cursor: pointer;
-    transition: color 0.2s;
-  }
+  .lang-modal-box { width: 100%; max-width: 900px; max-height: 85vh; display: flex; flex-direction: column; gap: 24px; position: relative; }
+  .lang-modal-close { position: absolute; top: -10px; right: 0; background: transparent; border: none; color: var(--text3); font-size: 28px; cursor: pointer; transition: color 0.2s; }
   .lang-modal-close:hover { color: var(--text); }
 
-  .lang-modal-header h3 {
-    font-family: var(--serif);
-    font-size: 28px;
-    font-weight: 400;
-    margin-bottom: 8px;
-    letter-spacing: 0.02em;
-  }
-  .lang-modal-header p {
-    font-size: 13px;
-    color: var(--text3);
-  }
+  .lang-modal-header h3 { font-family: var(--serif); font-size: 28px; font-weight: 400; margin-bottom: 8px; letter-spacing: 0.02em; }
+  .lang-modal-header p { font-size: 13px; color: var(--text3); }
 
-  .lang-search-wrapper {
-    position: relative;
-    width: 100%;
-  }
-  .lang-search-input {
-    width: 100%;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--border2);
-    padding: 14px 20px;
-    border-radius: 12px;
-    color: white;
-    font-size: 14px;
-    outline: none;
-    transition: border 0.3s;
-  }
+  .lang-search-wrapper { position: relative; width: 100%; }
+  .lang-search-input { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid var(--border2); padding: 14px 20px; border-radius: 12px; color: white; font-size: 14px; outline: none; transition: border 0.3s; }
   .lang-search-input:focus { border-color: var(--accent); }
 
-  .lang-grid-viewport {
-    flex: 1;
-    overflow-y: auto;
-    padding-right: 10px;
-    margin-top: 8px;
-  }
-
-  .lang-links-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 10px;
-  }
-
+  .lang-grid-viewport { flex: 1; overflow-y: auto; padding-right: 10px; margin-top: 8px; }
+  .lang-links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+  
   .lang-select-btn {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid transparent;
-    color: var(--text2);
-    padding: 14px;
-    border-radius: 100px;
-    text-align: center;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.25s var(--ease);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    background: rgba(255,255,255,0.02); border: 1px solid transparent; color: var(--text2); padding: 14px; border-radius: 100px;
+    text-align: center; font-size: 13px; cursor: pointer; transition: all 0.25s var(--ease); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-
-  .lang-select-btn:hover {
-    background: rgba(255,255,255,0.07);
-    color: white;
-    border-color: rgba(255,255,255,0.15);
-  }
+  .lang-select-btn:hover { background: rgba(255,255,255,0.07); color: white; border-color: rgba(255,255,255,0.15); }
 
   /* ===== HERO ===== */
   .hero {
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 48px 80px;
-    position: relative;
-    overflow: hidden;
+    min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 48px 80px; position: relative; overflow: hidden;
   }
-
   .hero-bg {
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background:
       radial-gradient(ellipse 60% 50% at 70% 40%, rgba(74,158,255,0.08) 0%, transparent 70%),
       radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,169,110,0.06) 0%, transparent 60%),
       linear-gradient(to bottom, transparent 0%, rgba(5,5,7,0.4) 60%, var(--bg) 100%);
   }
-
-  .hero-horizon {
-    position: absolute;
-    top: 42%; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(74,158,255,0.2), transparent);
-  }
-
-  .hero-eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    margin-bottom: 24px;
-    line-height: 1.6;
-  }
-
-  .hero-title {
-    font-family: var(--serif);
-    font-size: clamp(40px, 6.5vw, 84px);
-    font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    max-width: 1100px;
-  }
-
+  .hero-horizon { position: absolute; top: 42%; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(74,158,255,0.2), transparent); }
+  .hero-eyebrow { font-size: 12px; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 24px; line-height: 1.6; }
+  .hero-title { font-family: var(--serif); font-size: clamp(40px, 6.5vw, 84px); font-weight: 400; line-height: 1.1; letter-spacing: -0.01em; max-width: 1100px; }
   .hero-title em { font-style: italic; color: var(--gold); }
-
-  .hero-desc {
-    margin-top: 32px;
-    max-width: 720px;
-    font-size: 14px;
-    line-height: 1.8;
-    color: var(--text2);
-  }
+  .hero-desc { margin-top: 32px; max-width: 720px; font-size: 14px; line-height: 1.8; color: var(--text2); }
   .hero-desc strong { color: var(--text); font-weight: 500; }
 
   .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 40px; }
-  .tag {
-    font-size: 11px;
-    letter-spacing: 0.05em;
-    padding: 6px 14px;
-    border: 1px solid var(--border2);
-    border-radius: 100px;
-    color: var(--text2);
-    background: var(--surface);
-    backdrop-filter: blur(8px);
-  }
+  .tag { font-size: 11px; letter-spacing: 0.05em; padding: 6px 14px; border: 1px solid var(--border2); border-radius: 100px; color: var(--text2); background: var(--surface); backdrop-filter: blur(8px); }
   .tag.accent { border-color: rgba(62,207,142,0.35); color: var(--emerald); }
   .tag.gold { border-color: rgba(201,169,110,0.3); color: var(--gold); }
 
-  .hero-scroll {
-    position: absolute;
-    bottom: 40px; right: 48px;
-    display: flex; align-items: center; gap: 12px;
-    color: var(--text3); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-  }
-  .scroll-line {
-    width: 40px; height: 1px; background: var(--border2); position: relative; overflow: hidden;
-  }
-  .scroll-line::after {
-    content: ''; position: absolute; inset: 0; background: var(--accent);
-    transform: translateX(-100%); animation: scanLine 2.5s ease-in-out infinite;
-  }
+  .hero-scroll { position: absolute; bottom: 40px; right: 48px; display: flex; align-items: center; gap: 12px; color: var(--text3); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .scroll-line { width: 40px; height: 1px; background: var(--border2); position: relative; overflow: hidden; }
+  .scroll-line::after { content: ''; position: absolute; inset: 0; background: var(--accent); transform: translateX(-100%); animation: scanLine 2.5s ease-in-out infinite; }
   @keyframes scanLine { 0% { transform: translateX(-100%); } 50% { transform: translateX(0); } 100% { transform: translateX(100%); } }
 
   /* ===== SECTION BASE ===== */
@@ -303,7 +173,6 @@
   .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text3); margin-bottom: 20px; display: block; }
   .section-title { font-family: var(--serif); font-size: clamp(30px, 4vw, 48px); font-weight: 400; line-height: 1.2; }
   .section-title em { font-style: italic; color: var(--gold); }
-
   .divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--border2), transparent); }
 
   /* ===== PARADOX SECTION ===== */
@@ -331,15 +200,15 @@
   .stat-label { font-size: 11px; letter-spacing: 0.06em; color: var(--text3); text-transform: uppercase; font-weight: 600; }
   .stat-desc { font-size: 12.5px; color: var(--text2); line-height: 1.5; margin-top: 4px; }
 
-  /* ===== LIFESTYLE SECTION ===== */
+  /* ===== LIFESTYLE GRID ===== */
   .lifestyle-header { max-width: 800px; margin-bottom: 64px; }
   .lifestyle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .lifestyle-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 32px; transition: all 0.4s var(--ease); }
+  .lifestyle-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 32px; transition: all 0.4s var(--ease); display: flex; flex-direction: column; justify-content: space-between; }
   .lifestyle-card:hover { border-color: var(--border2); transform: translateY(-4px); }
+  .lifestyle-top-info { margin-bottom: 16px; }
   .lifestyle-icon { font-size: 26px; margin-bottom: 16px; display: block; }
   .lifestyle-card h4 { font-family: var(--serif); font-size: 18px; font-weight: 400; margin-bottom: 14px; }
   .lifestyle-card p { font-size: 13px; line-height: 1.6; color: var(--text2); }
-  
   .lifestyle-video-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 11px; letter-spacing: 0.1em; color: var(--accent); text-decoration: none; text-transform: uppercase; }
 
   /* ===== VILLAS SECTION ===== */
@@ -366,7 +235,7 @@
   .compare-item strong { color: var(--accent); font-weight: 400; }
   .price-note { margin-top: 24px; font-size: 11px; color: rgba(74,158,255,0.55); line-height: 1.5; }
 
-  /* ===== MGMT SECTION ===== */
+  /* ===== MANAGEMENT SECTION ===== */
   .mgmt-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: center; margin-top: 56px; }
   .mgmt-dashboard { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
   .mgmt-dash-header { padding: 20px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
@@ -397,7 +266,9 @@
   .inquire-section { background: var(--bg2); }
   .inquire-inner { max-width: 720px; margin: 0 auto; text-align: center; }
   .inquire-sub { font-size: 14px; color: var(--text2); line-height: 1.7; margin-bottom: 48px; }
-  .inquire-form { background: var(--bg3); border: 1px solid var(--border2); border-radius: 24px; padding: 48px; text-align: left; }
+  
+  /* 实装真实可靠的邮件转发底层表单 */
+  .inquire-form { background: var(--bg3); border: 1px solid var(--border2); border-radius: 24px; padding: 48px; text-align: left; display: block; }
   .form-group { margin-bottom: 24px; }
   .form-label { display: block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); margin-bottom: 10px; }
   .form-input { width: 100%; background: var(--bg); border: 1px solid var(--border2); border-radius: 12px; padding: 14px 18px; font-size: 13.5px; color: var(--text); outline: none; transition: all 0.3s var(--ease); }
@@ -406,6 +277,7 @@
   
   .form-submit { width: 100%; background: var(--text); color: var(--bg); border: none; border-radius: 100px; padding: 16px 32px; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: all 0.35s var(--ease); margin-top: 8px; }
   .form-submit:hover { background: var(--accent); color: white; transform: scale(1.02); box-shadow: 0 20px 60px rgba(74,158,255,0.2); }
+  .form-submit:disabled { opacity: 0.7; cursor: not-allowed; }
 
   /* ===== FOOTER ===== */
   footer { padding: 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; color: var(--text3); letter-spacing: 0.05em; }
@@ -420,9 +292,11 @@
   .quote-text { font-family: var(--serif); font-size: clamp(20px, 2.8vw, 36px); font-weight: 400; color: var(--text2); line-height: 1.5; max-width: 950px; margin: 0 auto; }
   .quote-text em { color: var(--gold); font-style: normal; }
 
+  @media (max-width: 1200px) {
+    .lifestyle-grid { grid-template-columns: 1fr 1fr; }
+  }
   @media (max-width: 992px) {
     .villas-grid { grid-template-columns: 1fr; gap: 16px; background: transparent; }
-    .lifestyle-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 768px) {
     nav { padding: 16px 20px; flex-direction: column; gap: 16px; }
@@ -444,6 +318,7 @@
 
 <div id="google_translate_element"></div>
 
+<!-- 导航栏 -->
 <nav>
   <div class="nav-brand">
     <span class="nav-title">THE KUROSHIO TWINS</span>
@@ -458,6 +333,7 @@
   </div>
 </nav>
 
+<!-- 语言选择面板 -->
 <div class="lang-overlay" id="langOverlay">
   <div class="lang-modal-box">
     <button class="lang-modal-close" onclick="toggleLangOverlay(false)">✕</button>
@@ -472,28 +348,22 @@
     </div>
 
     <div class="lang-grid-viewport">
-      <div class="lang-links-grid" id="langContainer">
-        </div>
+      <div class="lang-links-grid" id="langContainer"></div>
     </div>
   </div>
 </div>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-horizon"></div>
 
   <div style="position:relative;z-index:2;">
     <p class="hero-eyebrow">和歌山 · 距南纪白浜机场15分钟 · 俯瞰太平洋的安全高台之巅</p>
-    
-    <h1 class="hero-title">
-      Claim Your<br><em>Pacific Sovereignty</em><br>
-      <small style="font-size:24px; display:block; margin-top:12px; font-weight:400; color:rgba(255,255,255,0.6)">黑潮之畔，安全高台的绝对主权</small>
-    </h1>
-    
+    <h1 class="hero-title">Claim Your<br><em>Pacific Sovereignty</em><br><small style="font-size:24px; display:block; margin-top:12px; font-weight:400; color:rgba(255,255,255,0.6)">黑潮之畔，安全高台的绝对主权</small></h1>
     <div class="hero-desc">
       <p>两套拥有<strong>完全独立产权</strong>的高台海景大宅，高高栖于和歌山须美江牢固的基岩之上。黑潮海流，天然安全高台，180°全景落日——以无法复制的大自然力量，为您的资产注入永恒的<strong>稀缺性与安全感</strong>。</p>
     </div>
-    
     <div class="hero-tags">
       <span class="tag">180° Pacific Panorama</span>
       <span class="tag accent">⬡ 津波免疫 · 高台绝对安全</span>
@@ -501,108 +371,111 @@
       <span class="tag">Eco Smart Microgrid</span>
     </div>
   </div>
-
   <div class="hero-scroll"><div class="scroll-line"></div>SCROLL</div>
 </section>
 
+<!-- PARADOX SOLVED -->
 <section class="paradox">
   <div class="reveal">
     <span class="section-label">The Oceanfront Paradox Solved · 破解海景资产的永恒矛盾</span>
     <h2 class="section-title">海景的梦，<em>不应伴随不确定性</em></h2>
   </div>
-
   <div class="paradox-grid reveal">
     <div class="paradox-col">
       <div class="paradox-col-badge bad">✕ &nbsp; 传统临海物业</div>
       <h3>永恒的脆弱性</h3>
       <ul class="paradox-list">
-        <li>
-          <div class="icon x">✕</div>
-          <div>低标高立地意味着对海啸与高潮的无尽担忧——无声的恐惧时刻侵蚀着资产的底层价值。</div>
-        </li>
-        <li>
-          <div class="icon x">✕</div>
-          <div>由于缺乏地势屏障，直接暴露于潮湿盐害中导致建筑结构劣化，高昂的维护成本如潮水般涌来。</div>
-        </li>
+        <li><div class="icon x">✕</div><div>低标高立地意味着对海啸与高潮的无尽担忧——无声的恐惧时刻侵蚀着资产的底层价值。</div></li>
+        <li><div class="icon x">✕</div><div>由于缺乏地势屏障，直接暴露于潮湿盐害中导致建筑结构劣化，高昂的维护成本如潮水般涌来。</div></li>
       </ul>
     </div>
-    
     <div class="paradox-col solution">
       <div class="paradox-col-badge good">◉ &nbsp; 黑潮双墅 · 绝对安全感</div>
       <h3>绝对的控制与静谧</h3>
       <ul class="paradox-list">
-        <li>
-          <div class="icon check">✓</div>
-          <div><strong>100% 海啸免疫</strong> —— 伫立于坚固岩盘的安全高台，优越的物理标高将自然灾害风险完全隔绝。</div>
-        </li>
-        <li>
-          <div class="icon check">✓</div>
-          <div><strong>绿色智能微电网</strong> —— 离网级光储自给，待机成本几乎为零，即使身在海外，资产依然安静自主运转。</div>
-        </li>
+        <li><div class="icon check">✓</div><div><strong>100% 海啸免疫</strong> —— 伫立于坚固岩盘的安全高台，优越的物理标高将自然灾害风险完全隔绝。</div></li>
+        <li><div class="icon check">✓</div><div><strong>绿色智能微电网</strong> —— 离网级光储自给，待机成本几乎为零，即使身在海外，资产依然安静自主运转。</div></li>
       </ul>
     </div>
   </div>
 
   <div class="stats-row reveal">
-    <div class="stat-cell">
-      <div class="stat-num">180<span>°</span></div>
-      <div class="stat-label">太平洋全景</div>
-      <div class="stat-desc">西向高台，毫无遮挡的黑潮落日绝景。</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num">15<span>min</span></div>
-      <div class="stat-label">机场生活圈</div>
-      <div class="stat-desc">从南纪白浜机场经由舒适沿海公路直达高台邸宅。</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num">2<span>lots</span></div>
-      <div class="stat-label">独立产权栋数</div>
-      <div class="stat-desc">完全独立的双产权证，视野经精密设计互不干扰。</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num">≈0<span>%</span></div>
-      <div class="stat-label">零待机持有能耗</div>
-      <div class="stat-desc">绿色微电网全年自动无感运行，持有成本微乎其微。</div>
-    </div>
+    <div class="stat-cell"><div class="stat-num">180<span>°</span></div><div class="stat-label">太平洋全景</div><div class="stat-desc">西向高台，毫无遮挡的黑潮落日绝景。</div></div>
+    <div class="stat-cell"><div class="stat-num">15<span>min</span></div><div class="stat-label">机场生活圈</div><div class="stat-desc">从南纪白浜机场经由舒适沿海公路直达高台邸宅。</div></div>
+    <div class="stat-cell"><div class="stat-num">2<span>lots</span></div><div class="stat-label">独立产权栋数</div><div class="stat-desc">完全独立的双产权证，视野经精密设计互不干扰。</div></div>
+    <div class="stat-cell"><div class="stat-num">≈0<span>%</span></div><div class="stat-label">零待机持有能耗</div><div class="stat-desc">绿色微电网全年自动无感运行，持有成本微乎其微。</div></div>
   </div>
 </section>
 
+<!-- WIDE QUOTE -->
 <div class="wide-quote">
-  <div class="quote-text reveal">
-    “在日本，海岸线高台的别墅建筑许可<em>已被事实上面向未来永久封印</em>——<br>黑潮双墅，是太平洋向您发出的最后一张高台领权入场券。”
-  </div>
+  <div class="quote-text reveal">“在日本，海岸线高台的别墅建筑许可<em>已被事实上面向未来永久封印</em>——<br>黑潮双墅，是太平洋向您发出的最后一张高台领权入场券。”</div>
 </div>
 
+<!-- LIFESTYLE EXPANDED SECTION -->
 <section>
   <div class="lifestyle-header reveal">
-    <span class="section-label">15分钟世界级生活圈 · 稀缺奢华体验</span>
-    <h2 class="section-title">当顶级基础设施，遇到<em>神圣的高台静谧</em></h2>
+    <span class="section-label">Premium Lifestyle Destination · 顶级奢旅活动圈</span>
+    <h2 class="section-title">当原生海洋探险，遇到<em>世界遗产的灵性之美</em></h2>
   </div>
 
   <div class="lifestyle-grid">
     <div class="lifestyle-card reveal">
-      <span class="lifestyle-icon">🌅</span>
-      <h4>黑潮之畔的壮丽落日</h4>
-      <p>完美的正西向高台视野，看一轮红日毫无阻挡地沉入纯净的黑潮水平线，将大海染成流淌的金海。这是身处繁华大都市的核心物业永远无法奢求的旷世景观。</p>
+      <div class="lifestyle-top-info">
+        <span class="lifestyle-icon">🌅</span>
+        <h4>黑潮落日与千年名汤</h4>
+        <p>正西向极致视野，看一轮红日毫无阻挡地沉入纯净的太平洋水平线。驱车15分钟即可抵达拥有数千年历史的日本三大古温泉之一——白浜温泉，体验都市核心物业无法企及的宁谧奢华。</p>
+      </div>
+      <div>
+        <a href="https://youtu.be/jvqvPjzECI8" target="_blank" class="lifestyle-video-link">▶ DRIVE VIDEO</a>
+      </div>
     </div>
     
     <div class="lifestyle-card reveal">
-      <span class="lifestyle-icon">✈️</span>
-      <h4>离尘不离世的15分钟</h4>
-      <p>南纪白浜机场提供便捷通往核心枢纽机场的直飞航班。无需穿行险峻山路，全程皆是宽阔平坦的沿海国道。从机场落地，到您高台邸宅的门，仅需惬意的15分钟。</p>
-      <a href="https://youtu.be/jvqvPjzECI8" target="_blank" class="lifestyle-video-link">▶ DRIVE VIDEO</a>
+      <div class="lifestyle-top-info">
+        <span class="lifestyle-icon">🤿</span>
+        <h4>黑潮汇聚的世界级潜水圣地</h4>
+        <p>得益于温暖的黑潮洋流，周边海域能见度极高，孕育着大片绚丽的温带及亚热带珊瑚礁。这里是日本最负盛名的潜水天堂，您可以在清澈碧蓝的玻璃海中，与成群的彩色热带鱼、海龟一同自在翱翔。</p>
+      </div>
     </div>
     
     <div class="lifestyle-card reveal">
-      <span class="lifestyle-icon">♨️</span>
-      <h4>南纪白浜千年温泉文化</h4>
-      <p>作为日本三大古名汤之一的白浜温泉就在15分钟生活圈内。远近闻名的割烹、每日现捕的新鲜海鲜市场、一流的日式料亭——都市的精致优雅与自然的纯净高台在此悠然共生。</p>
+      <div class="lifestyle-top-info">
+        <span class="lifestyle-icon">🏄‍♀️</span>
+        <h4>SUP 站立式桨板海湾巡游</h4>
+        <p>庄园下方的须美江海岸拥有天然避风的海湾地形，水面如镜面般平静。这里是绝佳的 SUP（桨板）圣地，清晨或傍晚，您可以踩着桨板在流金的水面上漂浮，探索未受污染的礁石迷宫与私密无人沙滩。</p>
+      </div>
+    </div>
+
+    <div class="lifestyle-card reveal">
+      <div class="lifestyle-top-info">
+        <span class="lifestyle-icon">🚴‍♂️</span>
+        <h4>太平洋黑潮沿海公路骑行</h4>
+        <p>庄园外即是全日本风景最壮丽的沿海国道之一。无论是公路自行车还是机车骑行，蜿蜒的海岸线都将为您带来毫无压力的感官震撼。海风吹拂、视野开阔，每一公里都是国家公园级别的骑行画卷。</p>
+      </div>
+    </div>
+
+    <div class="lifestyle-card reveal">
+      <div class="lifestyle-top-info">
+        <span class="lifestyle-icon">🥾</span>
+        <h4>熊野古道 · 唤醒朝圣灵性</h4>
+        <p>毗邻联合国教科文组织世界文化遗产“熊野古道”。从庄园出发可轻松前往这片延续千年的圣地。漫步于长满青苔、巨杉参天的参拜古道中，洗涤都市浮躁，为您和贵宾提供无可替代的心灵庇护所。</p>
+      </div>
+    </div>
+
+    <div class="lifestyle-card reveal">
+      <div class="lifestyle-top-info">
+        <span class="lifestyle-icon">🐟</span>
+        <h4>顶级割烹与黑潮渔获</h4>
+        <p>15分钟生活圈直达著名的南纪白浜海鲜市场。每日现捕的顶级金枪鱼、真鲷及和歌山特产伊势龙虾，在周边顶尖日式料亭与割烹中被转化为舌尖艺术。自然的纯净与都市的精致在此悠然交融。</p>
+      </div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
+<!-- VILLAS SECTION -->
 <section class="villas-section">
   <div class="villas-intro">
     <div class="villas-intro-text reveal">
@@ -632,22 +505,16 @@
       <div class="villa-num">Lot 01 · 独立产权</div>
       <div class="villa-name">Villa A</div>
       <div class="villa-role">私密高台行宫 ／ Private Sanctuary</div>
-      <div class="villa-desc">
-        <p>它既是您守望太平洋的隐秘城堡，也是接待核心圈层的高规格社交王座。离网微电网系统在您离境日本期间，会全程自动调控温湿度，精密痕护纯木建筑。</p>
-      </div>
-      <div class="villa-footer">100% 独立产权 · 视线完全分离设计 · 智能微电网守护</div>
+      <div class="villa-desc"><p>它既是您守望太平洋的隐秘城堡，也是接待核心圈层的高规格社交王座。庄园微生态自动化维持系统在您离境期间，仍将安静守护纯木建筑的永恒质感。</p></div>
+      <div class="villa-footer">100% 独立产权 · 视线完全分离设计 · 庄园系统自动痕护</div>
     </div>
-
     <div class="villa-card">
       <div class="villa-num">Lot 02 · 独立产权</div>
       <div class="villa-name">Villa B</div>
       <div class="villa-role">高端奢旅民宿 ／ Premium Yield Asset</div>
-      <div class="villa-desc">
-        <p>定位为高端奢华海景民宿。搭载100%无人化物联网管理系统，让您无论身处全球何地，皆能一键管理。稳健的租金能轻松覆盖全庄园开支，实现资产无成本持有。</p>
-      </div>
-      <div class="villa-footer">资产自主收益 · IoT全流程远程智控 · 充沛现金流护航</div>
+      <div class="villa-desc"><p>定位为高端奢华海景民宿。依托周边顶级的潜水、桨板、熊野古道度假红利，引入便捷的无人化无感管理，轻松获取稳健充沛的现金流，覆盖整片庄园持有成本。</p></div>
+      <div class="villa-footer">资产自主收益 · 远程智能无感服务 · 充沛现金流护航</div>
     </div>
-
     <div class="villa-card price-card">
       <div class="price-badge">⟡ 绝无仅有的窗口期</div>
       <div class="price-main">¥25,000,000</div>
@@ -661,42 +528,41 @@
   </div>
 </section>
 
+<!-- MANAGEMENT -->
 <section>
   <span class="section-label reveal">跨国无感远程托管 · 资产看板</span>
   <h2 class="section-title reveal">身在海外，<em>资产依然巍然运转</em></h2>
-
   <div class="mgmt-grid">
     <div class="mgmt-dashboard reveal">
       <div class="mgmt-dash-header">
         <div class="traffic-lights"><div class="tl r"></div><div class="tl y"></div><div class="tl g"></div></div>
-        <span class="dash-title">黑潮高台庄园 · 远程资产看板</span>
+        <span class="dash-title">黑潮高台庄园 · 远程资产状态</span>
       </div>
       <div class="mgmt-dash-body">
         <div class="dash-row">
-          <span class="dash-row-label"><div class="dash-dot green"></div>离网智能生态微电网</span>
+          <span class="dash-row-label"><div class="dash-dot green"></div>独立智能微电网状态</span>
           <span class="dash-status green">100% Active</span>
         </div>
         <div class="dash-row">
-          <span class="dash-row-label"><div class="dash-dot blue"></div>中央AI恒温除湿系统</span>
-          <span class="dash-status blue">Optimal · 42%RH</span>
+          <span class="dash-row-label"><div class="dash-dot blue"></div>隐形新风与微气候痕护</span>
+          <span class="dash-status blue">Optimal</span>
         </div>
         <div class="dash-row">
-          <span class="dash-row-label"><div class="dash-dot white"></div>IoT安全防御锁链</span>
+          <span class="dash-row-label"><div class="dash-dot white"></div>数字化安全防护链</span>
           <span class="dash-status" style="color:var(--text)">Secured</span>
         </div>
       </div>
     </div>
-
     <div class="mgmt-text reveal">
       <p>据有黑潮双墅，绝不代表您必须时刻常驻于此。<strong>全封闭闭环式的全托式管家服务</strong>，能确保即使您常年身处海外，庄园依然在太平洋安稳的高台之上维持最完美的巅峰状态。</p>
       <div class="mgmt-bullets">
         <div class="mgmt-bullet">
           <div class="mgmt-bullet-icon">🔋</div>
-          <div><strong>智能微电网</strong>：太阳能与高能级储能电池精密协同供电，全年待机基本无电费消耗。</div>
+          <div><strong>自主能源保障</strong>：太阳能与高能级储备精密协同，维持庄园基本运作，免去海外持有的琐碎负担。</div>
         </div>
         <div class="mgmt-bullet">
-          <div class="mgmt-bullet-icon">🌡️</div>
-          <div><strong>自动庇护</strong>：高级集成环境感应自动接管新风与除湿，令您彻底告别不确定性维护开支。</div>
+          <div class="mgmt-bullet-icon">🍃</div>
+          <div><strong>微生态庇护</strong>：环境感应系统全自动无感调节调谐，令您彻底告别繁复的不确定性维护。</div>
         </div>
       </div>
     </div>
@@ -705,43 +571,44 @@
 
 <div class="divider"></div>
 
+<!-- INQUIRE (实装 Google 邮件发送的系统表单) -->
 <section class="inquire-section" id="inquire">
   <div class="inquire-inner">
     <span class="section-label reveal">专属席位定向申购 · Private Registry</span>
     <h2 class="section-title reveal">申请 VIP 专属资产访问权限</h2>
+    <div class="inquire-sub reveal">黑潮双墅（The Kuroshio Twins）仅面向通过定向初审的高净值买家非公开披露详情。提交下表后，您的资深私人资产顾问将在24小时内为您提供高精度数字化资料包，并安排一对一非公开绝密商谈。</div>
     
-    <div class="inquire-sub reveal">
-      黑潮双墅（The Kuroshio Twins）仅面向通过定向初审的高净值买家非公开披露详情。提交下表后，您的资深私人资产顾问将在24小时内为您提供高精度数字化资料包，并安排一对一非公开绝密商谈。
-    </div>
-
-    <div class="inquire-form reveal">
+    <!-- 实装异步提交的表单容器 -->
+    <form class="inquire-form reveal" id="kuroshioForm">
       <div class="form-grid">
         <div class="form-group">
           <label class="form-label">您的贵姓尊名</label>
-          <input type="text" class="form-input" placeholder="例如：张先生 / 山田先生">
+          <input type="text" name="客户姓名" class="form-input" placeholder="例如：张先生 / 山田先生" required>
         </div>
         <div class="form-group">
           <label class="form-label">电子邮箱</label>
-          <input type="email" class="form-input" placeholder="your@email.com">
+          <input type="email" name="电子邮箱" class="form-input" placeholder="your@email.com" required>
         </div>
       </div>
       <div class="form-group">
         <label class="form-label">联络电话</label>
-        <input type="text" class="form-input" placeholder="+86 139-0000-0000">
+        <input type="text" name="联络电话" class="form-input" placeholder="+86 139-0000-0000" required>
       </div>
-      <button class="form-submit" onclick="this.textContent='✓ Submitted / 申请已递交'; this.style.background='#3ecf8e';">申请专属资产访问权限</button>
-    </div>
+      <button type="submit" class="form-submit" id="submitBtn">申请专属资产访问权限</button>
+    </form>
+    
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <span class="footer-brand">THE KUROSHIO TWINS</span>
   <span>和歌山县·须美江 · 高台庄园 · 永久产权资产</span>
   <span>© 2026 · For the Chosen One.</span>
 </footer>
 
+<!-- 语言与动态翻译逻辑控制 -->
 <script>
-// 全球核心 16 种高净值主要语言字典
 const languages = [
   { code: 'zh-CN', name: '简体中文' },
   { code: 'zh-TW', name: '繁體中文' },
@@ -761,7 +628,6 @@ const languages = [
   { code: 'id', name: 'Bahasa Indonesia' }
 ];
 
-// 初始化检查当前的网址中是否有已经选择的语言（针对iPhone刷新后的状态显示修复）
 document.addEventListener("DOMContentLoaded", () => {
   const match = window.location.hash.match(/googtrans\(zh-CN\|([^)]+)\)/);
   if (match && match[1]) {
@@ -788,12 +654,8 @@ function toggleLangOverlay(show) {
 function renderLanguageList(filterText = '') {
   const container = document.getElementById('langContainer');
   container.innerHTML = '';
-  
   languages.forEach(lang => {
-    if (filterText && !lang.name.toLowerCase().includes(filterText.toLowerCase()) && !lang.code.toLowerCase().includes(filterText.toLowerCase())) {
-      return;
-    }
-
+    if (filterText && !lang.name.toLowerCase().includes(filterText.toLowerCase()) && !lang.code.toLowerCase().includes(filterText.toLowerCase())) return;
     const btn = document.createElement('button');
     btn.className = 'lang-select-btn';
     btn.textContent = lang.name;
@@ -806,29 +668,18 @@ function renderLanguageList(filterText = '') {
 }
 
 function filterLanguages() {
-  const text = document.getElementById('langSearch').value;
-  renderLanguageList(text);
+  renderLanguageList(document.getElementById('langSearch').value);
 }
 
-/**
- * 核心大升级：全端通用翻译执行器
- * 完美绕过 iPhone Safari 浏览器对动态脚本修改选择器的“伪点击”封锁
- */
 function executeUniversalTranslate(langCode, langName) {
   document.getElementById('current-lang-name').textContent = langName;
-  
-  // 1. 先尝试用传统的PC端模拟点击方案（如果已经就绪，速度最快）
   const selectEl = document.querySelector('.goog-te-combo');
   if (selectEl && navigator.userAgent.indexOf('iPhone') === -1 && navigator.userAgent.indexOf('iPad') === -1) {
     selectEl.value = langCode;
     selectEl.dispatchEvent(new Event('change'));
   } else {
-    // 2. 针对 iPhone、iPad 以及 PC未加载完的场景，直接使用绝对安全的 URL Hash 强制刷新法
-    // 这是苹果生态唯一 100% 豁免且无条件触发原生翻译引擎的白名单途径
     const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.search;
     window.location.href = cleanUrl + '#googtrans(zh-CN|' + langCode + ')';
-    
-    // 针对部分老款 iOS 系统，追加强制重载以激活底层
     window.location.reload();
   }
 }
@@ -843,8 +694,60 @@ function googleTranslateElementInit() {
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+<!-- 核心脚本：Formspree 智能无刷新安全发送逻辑 -->
 <script>
-// 滚动触显动画逻辑
+  // 【重要】请将下方代码中的 'YOUR_FORMSPREE_ID' 替换为您注册得到的 8 位专属密钥字符串
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORMSPREE_ID";
+
+  document.getElementById('kuroshioForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // 阻止页面跳转
+    
+    const form = this;
+    const button = document.getElementById('submitBtn');
+    const formData = new FormData(form);
+    
+    // 视觉反馈：开始发送中
+    button.textContent = 'Sending... / 递交中...';
+    button.disabled = true;
+    
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        // 视觉反馈：发送成功
+        button.textContent = '✓ Submitted / 申请已递交';
+        button.style.background = '#3ecf8e';
+        button.style.color = '#ffffff';
+        form.reset(); // 自动清空用户填过的内容，防止重复提交
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            alert("提交出错: " + data.errors.map(error => error.message).join(", "));
+          } else {
+            alert("服务器返回异常，请稍后重试。");
+          }
+          resetButton(button);
+        });
+      }
+    })
+    .catch(error => {
+      alert("网络错误，数据发送失败，请检查网络连接。");
+      resetButton(button);
+    });
+  });
+
+  function resetButton(btn) {
+    btn.textContent = '申请专属资产访问权限';
+    btn.disabled = false;
+  }
+</script>
+
+<script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
