@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE KUROSHIO TWINS — 黑潮双墅 · 和歌山海上圣域 · 太平洋を望む絶壁の聖域</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #050507;
+    --bg2: #0c0c10;
+    --bg3: #13131a;
+    --surface: rgba(255,255,255,0.03);
+    --surface2: rgba(255,255,255,0.06);
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.14);
+    --text: #ffffff;
+    --text2: rgba(255,255,255,0.65);
+    --text3: rgba(255,255,255,0.52);
+    --accent: #4a9eff;
+    --accent2: #7ec8e3;
+    --gold: #c9a96e;
+    --gold2: rgba(201,169,110,0.15);
+    --emerald: #3ecf8e;
+    --serif: 'Playfair Display', 'Noto Serif SC', 'Hiragino Mincho ProN', Georgia, serif;
+    --sans: 'Inter', 'PingFang SC', 'Hiragino Kaku Gothic ProN', system-ui, sans-serif;
+    --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 2px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 2px; }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(5,5,7,0.72);
+    backdrop-filter: blur(24px) saturate(1.8);
+    -webkit-backdrop-filter: blur(24px) saturate(1.8);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.5s var(--ease);
+  }
+
+  .nav-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .nav-title {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--text);
+  }
+
+  .nav-sub {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.10em;
+    color: var(--text3);
+    text-transform: uppercase;
+  }
+
+  .nav-cta {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--text);
+    padding: 10px 22px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s var(--ease);
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover {
+    background: var(--accent);
+    color: white;
+    transform: scale(1.03);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(74,158,255,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,169,110,0.06) 0%, transparent 60%),
+      linear-gradient(to bottom, transparent 0%, rgba(5,5,7,0.4) 60%, var(--bg) 100%);
+  }
+
+  /* Animated ocean particles */
+  .hero-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    background: rgba(74,158,255,0.3);
+    border-radius: 50%;
+    animation: drift linear infinite;
+  }
+
+  @keyframes drift {
+    0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 0.4; }
+    100% { transform: translateY(-120px) translateX(30px) scale(0.5); opacity: 0; }
+  }
+
+  /* Animated horizon line */
+  .hero-horizon {
+    position: absolute;
+    top: 42%;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(74,158,255,0.25), rgba(201,169,110,0.2), transparent);
+    animation: horizonPulse 6s ease-in-out infinite;
+  }
+
+  @keyframes horizonPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.9; }
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.8s 0.3s var(--ease) forwards;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(54px, 8vw, 110px);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    max-width: 900px;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 1s 0.5s var(--ease) forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-desc {
+    margin-top: 36px;
+    max-width: 620px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text2);
+    font-weight: 400;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.9s 0.8s var(--ease) forwards;
+  }
+
+  .hero-desc strong { color: var(--text); font-weight: 400; }
+  .hero-desc .ja-text { display: block; font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0.5); }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 40px;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 0.8s 1.1s var(--ease) forwards;
+  }
+
+  .tag {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border: 1px solid var(--border2);
+    border-radius: 100px;
+    color: var(--text2);
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+  }
+
+  .tag.accent { border-color: rgba(62,207,142,0.35); color: var(--emerald); }
+  .tag.gold { border-color: rgba(201,169,110,0.3); color: var(--gold); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    right: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text3);
+    font-size: 12px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeIn 1s 1.5s var(--ease) forwards;
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--border2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    transform: translateX(-100%);
+    animation: scanLine 2.5s ease-in-out infinite;
+  }
+
+  @keyframes scanLine {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* ===== SECTION BASE ===== */
+  section { padding: 128px 48px; }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4.5vw, 56px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--text);
+  }
+
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-title .sub-ja { display: block; font-size: 20px; font-family: var(--sans); color: var(--text3); font-weight: 300; margin-top: 8px; letter-spacing: 0.05em; }
+
+  /* ===== DIVIDER ===== */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border2), transparent);
+  }
+
+  /* ===== PARADOX SECTION ===== */
+  .paradox {
+    background: var(--bg2);
+  }
+
+  .paradox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 64px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .paradox-col {
+    padding: 52px 48px;
+    background: var(--bg3);
+    position: relative;
+  }
+
+  .paradox-col.solution {
+    background: linear-gradient(135deg, #0a1628, #061220);
+    border: 1px solid rgba(74,158,255,0.15);
+  }
+
+  .paradox-col-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  .paradox-col-badge.bad { color: rgba(240,100,80,0.7); border: 1px solid rgba(240,100,80,0.2); background: rgba(240,100,80,0.05); }
+  .paradox-col-badge.good { color: var(--accent); border: 1px solid rgba(74,158,255,0.25); background: rgba(74,158,255,0.06); }
+
+  .paradox-col h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    margin-bottom: 28px;
+    color: var(--text);
+  }
+  .paradox-col h3 span { display: block; font-size: 16px; font-family: var(--sans); color: var(--text3); margin-top: 4px; }
+
+  .paradox-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .paradox-list li {
+    display: flex;
+    gap: 14px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text2);
+  }
+
+  .paradox-list li .text-wrapper { display: flex; flex-direction: column; gap: 4px; }
+  .paradox-list li .ja-desc { font-size: 12px; color: var(--text3); }
+
+  .paradox-list li .icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    margin-top: 2px;
+  }
+
+  .icon.x { background: rgba(240,100,80,0.12); color: rgba(240,100,80,0.7); }
+  .icon.check { background: rgba(74,158,255,0.12); color: var(--accent); }
+
+  .solution-glow {
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(74,158,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ===== STATS ROW ===== */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 80px;
+  }
+
+  .stat-cell {
+    background: var(--bg2);
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--text);
+  }
+
+  .stat-num span { font-size: 22px; color: var(--gold); }
+
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--text3);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 4px;
+  }
+
+  .stat-desc {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+    margin-top: 4px;
+  }
+  .stat-desc .ja-desc { display: block; font-size: 11px; color: var(--text3); margin-top: 2px; }
+
+  /* ===== LIFESTYLE SECTION ===== */
+  .lifestyle-header {
+    max-width: 700px;
+    margin-bottom: 80px;
+  }
+
+  .lifestyle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .lifestyle-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px;
+    transition: all 0.4s var(--ease);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lifestyle-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(74,158,255,0.03), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .lifestyle-card:hover { border-color: var(--border2); transform: translateY(-4px); }
+  .lifestyle-card:hover::before { opacity: 1; }
+
+  .lifestyle-icon {
+    font-size: 28px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .lifestyle-card h4 {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .lifestyle-card h4 span { display: block; font-size: 14px; font-family: var(--sans); color: var(--gold); margin-top: 2px; }
+
+  .lifestyle-card p {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.75;
+  }
+  .lifestyle-card p .ja-p { display: block; font-size: 12px; color: var(--text3); margin-top: 6px; }
+
+  .lifestyle-video-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-decoration: none;
+    text-transform: uppercase;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+
+  .lifestyle-video-link:hover { opacity: 1; }
+
+  /* ===== VILLAS SECTION ===== */
+  .villas-section { background: var(--bg2); }
+
+  .villas-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-bottom: 80px;
+  }
+
+  .villas-intro-text p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text2);
+    margin-top: 20px;
+  }
+  .villas-intro-text p .ja-inline { display: block; font-size: 12px; color: var(--text3); margin-top: 4px; }
+
+  .villas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .villa-card {
+    background: var(--bg3);
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .villa-card.price-card {
+    background: linear-gradient(160deg, #091e3a 0%, #061428 50%, #0a1428 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .villa-card.price-card::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(74,158,255,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .villa-num {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 16px;
+  }
+
+  .villa-name {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .villa-role {
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .villa-desc {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.8;
+    flex: 1;
+  }
+  .villa-desc .ja-desc { display: block; font-size: 12px; color: var(--text3); margin-top: 8px; }
+
+  .villa-footer {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text3);
+    letter-spacing: 0.05em;
+  }
+
+  /* Price card specific */
+  .price-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(74,158,255,0.9);
+    border: 1px solid rgba(74,158,255,0.25);
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+    background: rgba(74,158,255,0.06);
+  }
+
+  .price-main {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .price-unit {
+    font-size: 13px;
+    color: var(--text3);
+    margin-bottom: 6px;
+    letter-spacing: 0.05em;
+  }
+
+  .price-tagline {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .price-tagline .ja-line { display: block; font-size: 11px; color: var(--text3); margin-top: 4px; }
+
+  .price-compare {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .compare-item {
+    background: rgba(0,0,0,0.25);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 12px;
+    color: rgba(200,210,230,0.75);
+    line-height: 1.6;
+  }
+  .compare-item .ja-line { display: block; font-size: 11px; color: rgba(200,210,230,0.5); margin-top: 4px; }
+
+  .compare-item strong { color: rgba(74,158,255,0.85); font-weight: 400; }
+
+  .price-note {
+    margin-top: 28px;
+    font-size: 12px;
+    color: rgba(74,158,255,0.55);
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+  }
+
+  /* ===== MGMT SECTION ===== */
+  .mgmt-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 64px;
+  }
+
+  .mgmt-dashboard {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .mgmt-dash-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .traffic-lights {
+    display: flex;
+    gap: 6px;
+  }
+
+  .tl {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+
+  .tl.r { background: rgba(255,96,78,0.6); }
+  .tl.y { background: rgba(255,189,46,0.6); }
+  .tl.g { background: rgba(39,201,63,0.6); }
+
+  .dash-title {
+    font-size: 12px;
+    color: var(--text3);
+    letter-spacing: 0.05em;
+  }
+
+  .mgmt-dash-body { padding: 24px; }
+
+  .dash-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    background: var(--surface);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    border: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+
+  .dash-row:hover { background: var(--surface2); }
+
+  .dash-row-label {
+    font-size: 13px;
+    color: var(--text2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .dash-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dash-dot.green { background: var(--emerald); box-shadow: 0 0 6px rgba(62,207,142,0.5); }
+  .dash-dot.blue { background: var(--accent); }
+  .dash-dot.white { background: var(--text); }
+
+  .dash-status {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .dash-status.green { color: var(--emerald); }
+  .dash-status.blue { color: var(--accent); }
+  .dash-status.white { color: var(--text); }
+
+  .mgmt-text p { font-size: 14px; color: var(--text2); line-height: 1.8; margin-top: 24px; }
+  .mgmt-text p strong { color: var(--text); font-weight: 400; }
+  .mgmt-text p .ja-block { display: block; font-size: 12px; color: var(--text3); margin-top: 6px; }
+
+  .mgmt-bullets {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .mgmt-bullet {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+  .mgmt-bullet .text-wrapper { display: flex; flex-direction: column; gap: 4px; }
+  .mgmt-bullet .ja-desc { font-size: 12px; color: var(--text3); }
+
+  .mgmt-bullet-icon {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    border: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ===== INQUIRE SECTION ===== */
+  .inquire-section {
+    background: var(--bg2);
+  }
+
+  .inquire-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .inquire-inner .section-title { margin-bottom: 12px; }
+
+  .inquire-sub {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.7;
+    margin-bottom: 56px;
+  }
+  .inquire-sub .ja-block { display: block; font-size: 12px; color: var(--text3); margin-top: 8px; }
+
+  .inquire-form {
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: 24px;
+    padding: 48px;
+    text-align: left;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 10px;
+  }
+
+  .form-input {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border2);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13px;
+    font-family: var(--sans);
+    font-weight: 400;
+    color: var(--text);
+    outline: none;
+    transition: all 0.3s var(--ease);
+    -webkit-appearance: none;
+  }
+
+  .form-input:focus {
+    border-color: rgba(74,158,255,0.4);
+    background: rgba(74,158,255,0.03);
+  }
+
+  .form-input option { background: #1a1a28; }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--text);
+    color: var(--bg);
+    border: none;
+    border-radius: 100px;
+    padding: 16px 32px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.35s var(--ease);
+    margin-top: 8px;
+  }
+
+  .form-submit:hover {
+    background: var(--accent);
+    color: white;
+    transform: scale(1.02);
+    box-shadow: 0 20px 60px rgba(74,158,255,0.2);
+  }
+
+  .form-submit:active { transform: scale(0.99); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 48px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text3);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 12px;
+    color: var(--text2);
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== WIDE QUOTE ===== */
+  .wide-quote {
+    padding: 100px 48px;
+    text-align: center;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wide-quote::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,169,110,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .quote-text {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3.5vw, 44px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text2);
+    line-height: 1.5;
+    max-width: 950px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .quote-text em { color: var(--gold); font-style: normal; }
+  .quote-text .ja-quote { display: block; font-size: 18px; font-family: var(--sans); font-style: normal; color: var(--text3); margin-top: 14px; letter-spacing: 0.02em; }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    section { padding: 80px 20px; }
+    .hero { padding: 0 20px 60px; }
+    .hero-title { font-size: 42px; }
+    .hero-scroll { display: none; }
+    .paradox-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .lifestyle-grid { grid-template-columns: 1fr; }
+    .villas-grid { grid-template-columns: 1fr; }
+    .villas-intro { grid-template-columns: 1fr; gap: 40px; }
+    .mgmt-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+    .wide-quote { padding: 60px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <span class="nav-title">THE KUROSHIO TWINS</span>
+    <span class="nav-sub">Wakayama · Susami · 和歌山须美江高台庄园 · 周参见高台エステート</span>
+  </div>
+  <a href="#inquire" class="nav-cta">Request VIP Access / VIPアクセス要請</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <!-- Ocean particles -->
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-horizon"></div>
+
+  <!-- Ocean wave SVG at bottom -->
+  <svg style="position:absolute;bottom:0;left:0;right:0;width:100%;opacity:0.06;pointer-events:none;" viewBox="0 0 1440 120" preserveAspectRatio="none">
+    <path d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,70 1440,60 L1440,120 L0,120 Z" fill="#4a9eff"/>
+  </svg>
+
+  <div style="position:relative;z-index:2;">
+    <p class="hero-eyebrow">Wakayama, Japan · 南纪白滨机场 15 分钟 · 太平洋绝壁之巅 · 南紀白浜空港15分・太平洋の絶壁を統べる地</p>
+    <h1 class="hero-title">
+      Claim Your<br><em>Pacific Sovereignty</em>
+    </h1>
+    <p class="hero-desc">
+      两套拥有<strong>完全独立产权</strong>的绝壁海景大宅，栖于和歌山须美江高台之上。<br>
+      黑潮海流，天然悬崖，180° 全景落日——以无法复制的大自然力量，为您的资产注入永恒的<strong>稀缺性与安全感</strong>。
+      <span class="ja-text">和歌山・周参見の高台に佇む、<strong>完全独立所有権</strong>を有する2棟の絶壁オーシャンビューヴィラ。黒潮の潮流、大自然の崖、180°パノラマの夕日。再現不可能な自然の威容が、資産に永遠の<strong>希少性と絶対的安心</strong>をもたらします。</span>
+    </p>
+    <div class="hero-tags">
+      <span class="tag">180° Pacific Panorama</span>
+      <span class="tag accent">⬡ Tsunami Immune · 高台绝对安全</span>
+      <span class="tag gold">¥25,000,000 JPY · Total Combined</span>
+      <span class="tag">Eco Smart Microgrid</span>
+      <span class="tag">100% Independent Title × 2</span>
+      <span class="tag">和歌山すさみ・津波免責高台</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll / スクロール
+  </div>
+</section>
+
+<!-- PARADOX SOLVED -->
+<section class="paradox">
+  <div class="reveal">
+    <span class="section-label">The Oceanfront Paradox Solved</span>
+    <h2 class="section-title">打破传统海景资产<br>的"两难困境" <span class="sub-ja">伝統的な海沿い物件の「ジレンマ」を打ち破る</span></h2>
+  </div>
+
+  <div class="paradox-grid reveal">
+    <div class="paradox-col">
+      <div class="paradox-col-badge bad">✕ &nbsp; Traditional Beachfront / 従来型の海岸物件</div>
+      <h3>永恒的脆弱性 <span>永遠に続く脆弱性</span></h3>
+      <ul class="paradox-list">
+        <li>
+          <div class="icon x">✕</div>
+          <div class="text-wrapper">
+            <span>低海拔选址意味着无尽的海啸与风暴潮焦虑——那份沉默的恐惧，永远住在房产的底价里。</span>
+            <span class="ja-desc">低標高の立地は、津波や高潮への懸念が絶えません。その潜在的リスクは常に資産価値の足枷となります。</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon x">✕</div>
+          <div class="text-wrapper">
+            <span>长期暴露于破坏性的盐雾侵蚀之中，建筑结构快速老化，维护成本如潮水般涌来。</span>
+            <span class="ja-desc">容赦ない塩害に晒されることで構造の老朽化が加速し、膨大な修繕費用が重荷となります。</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon x">✕</div>
+          <div class="text-wrapper">
+            <span>太平洋台风季节，脆弱的市政电网频繁断供，远程管控资产如同水中捞月。</span>
+            <span class="ja-desc">台風シーズンによる停電リスクにより、海外や遠方からのアセットマネジメントが困難になります。</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="paradox-col solution">
+      <div class="solution-glow"></div>
+      <div class="paradox-col-badge good">◉ &nbsp; The Kuroshio Twins Solution / 黒潮ツインズの最適解</div>
+      <h3>绝对掌控与宁静 <span>絶対的な統治と静寂</span></h3>
+      <ul class="paradox-list">
+        <li>
+          <div class="icon check">✓</div>
+          <div class="text-wrapper">
+            <span><strong style="color:var(--text);font-weight:400">100% 免疫海啸</strong>——坐落于实心岩石高台之上，海拔高度从物理层面彻底隔绝所有自然灾害风险。</span>
+            <span class="ja-desc"><strong style="color:var(--text);font-weight:400">津波リスクから100%免責</strong>：強固な岩盤の高台に位置し、物理的な標高によって自然災害のリスクを根底から遮断。</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon check">✓</div>
+          <div class="text-wrapper">
+            <span><strong style="color:var(--text);font-weight:400">低碳生态智能微网</strong>——绿色能源自给，待机能耗趋近于零，人在海外时资产依然安静运转。</span>
+            <span class="ja-desc"><strong style="color:var(--text);font-weight:400">クリーンエネルギー・スマートマイクログリッド</strong>：電力を自給自足し、維持コストを極限まで圧縮。不在時も資産が自律駆動。</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon check">✓</div>
+          <div class="text-wrapper">
+            <span><strong style="color:var(--text);font-weight:400">自动化通风除湿系统</strong>——精准守护原木建筑结构，确保世代如新，永不被海风侵蚀。</span>
+            <span class="ja-desc"><strong style="color:var(--text);font-weight:400">自動換気・除湿システム</strong>：日本の伝統的な木造構造を最適な湿度で密かに守り抜き、潮風による風化を防ぎます。</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row reveal">
+    <div class="stat-cell">
+      <div class="stat-num">180<span>°</span></div>
+      <div class="stat-label">Full Pacific Panorama</div>
+      <div class="stat-desc">无遮挡黑潮落日全景视野，向西完美面朝太平洋 <span class="ja-desc">遮るもののない黒潮の水平線、完璧な西向きパノラマサンセット。</span></div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">15<span>min</span></div>
+      <div class="stat-label">Airport to Gate</div>
+      <div class="stat-desc">从南纪白滨机场沿宽敞沿海快速路直达庄园大门 <span class="ja-desc">南紀白浜空港から快適な沿岸ハイウェイでエステート正門へ直行。</span></div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">2<span>lots</span></div>
+      <div class="stat-label">Independent Title</div>
+      <div class="stat-desc">两套完全独立产权，视野精心错开，互不干扰 <span class="ja-desc">独立した2つの所有権。互いの視線が交わらない高度なプライベート設計。</span></div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">≈0<span>%</span></div>
+      <div class="stat-label">Standby Utility Cost</div>
+      <div class="stat-desc">生态微网全年自动运维，持有成本几乎可忽略不计 <span class="ja-desc">マイクログリッドによる自律運用の自動化で、年間維持費はほぼ無償化。</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WIDE QUOTE -->
+<div class="wide-quote">
+  <p class="quote-text reveal">
+    "在日本，海岸高台的度假建筑审批已<em>近乎永久封死</em>——<br>
+    The Kuroshio Twins，是太平洋最后一张通往绝壁主权的入场券。"
+    <span class="ja-quote">「現在、日本の海岸線における高台リゾート開発許可は極めて厳格化され、新規取得はほぼ不可能です。— ザ・黒潮ツインズは、太平洋の絶壁を統べる主権を手にする、実質的に最後の切符となるでしょう。」</span>
+  </p>
+</div>
+
+<!-- LIFESTYLE SECTION -->
+<section>
+  <div class="lifestyle-header reveal">
+    <span class="section-label">15-Min Modern Hub · World-Class Lifestyle</span>
+    <h2 class="section-title">极致基建<br>遇见<em>神圣宁静</em> <span class="sub-ja">極限のインフラ、そして神聖なる静寂との邂逅</span></h2>
+  </div>
+
+  <div class="lifestyle-grid">
+    <div class="lifestyle-card reveal">
+      <span class="lifestyle-icon">🌅</span>
+      <h4>黑潮极致落日 <span>黒潮に沈む絶対の夕日</span></h4>
+      <p>完美西向悬崖视野，目睹巨大红日毫无遮挡地沉入纯净黑潮海平线，将整片大洋染成流动的碎金。这是东京的豪宅永远无法给予你的画面。
+         <span class="ja-p">完璧な西向きの崖から、漆黒の黒潮へ沈みゆく巨大な夕日を望む。大洋を黄金に染め上げる圧倒的な光景は、都心の邸宅では決して手に入りません。</span>
+      </p>
+    </div>
+    <div class="lifestyle-card reveal" style="transition-delay:0.1s">
+      <span class="lifestyle-icon">🤿</span>
+      <h4>世界级潜水天堂 <span>世界屈指のダイビングパラダイス</span></h4>
+      <p>须美江海域水体透明度极高，水下珊瑚生态系统丰富如梦境。出门下山，背瓶潜入蔚蓝，或在太平洋信风中迎风破浪——这是你家门口的海洋奇迹。
+         <span class="ja-p">抜群の透明度を誇るすさみの海には、豊かなサンゴ礁の生態系が広がります。一歩外へ出れば、太平洋の風と戯れる至高のマリンアクティビティが日常に。</span>
+      </p>
+    </div>
+    <div class="lifestyle-card reveal" style="transition-delay:0.2s">
+      <span class="lifestyle-icon">🚴</span>
+      <h4>熊野古道骑行 <span>世界遺産・熊野古道サイクリング</span></h4>
+      <p>世界遗产级别的熊野古道就在周边，国家公园级自行车道沿崖而建。森林、海洋、古道——你拥有的不仅是一套物业，而是整片自然世界的入场券。
+         <span class="ja-p">世界遺産「熊野古道」に隣接し、国立公園級的絶景サイクルロードが崖に沿って走ります。森と海、そして歴史。自然界すべてがあなたの庭となります。</span>
+      </p>
+    </div>
+    <div class="lifestyle-card reveal" style="transition-delay:0.05s">
+      <span class="lifestyle-icon">✈️</span>
+      <h4>仅需 15 分钟 <span>空港からわずか15分の流麗</span></h4>
+      <p>南纪白滨机场提供国内主要城市直飞航班。平整宽敞的国道沿海快速路，没有险峻山道，流畅驾驶体验。从机场到庄园大门，仅需15分钟。
+         <span class="ja-p">羽田等主要都市を結ぶ南紀白浜空港。そこから険しい山道を一切通らず、整備された平坦な沿岸ハイウェイを流してわずか15分でエステートへ。</span>
+      </p>
+      <a href="https://youtu.be/jvqvPjzECI8" target="_blank" class="lifestyle-video-link">▶ 观看实地驾车视频 / 現地ドライブ映像を視聴</a>
+    </div>
+    <div class="lifestyle-card reveal" style="transition-delay:0.15s">
+      <span class="lifestyle-icon">♨️</span>
+      <h4>南纪白滨温泉文化 <span>南紀白浜の湯宿と美食の洗練</span></h4>
+      <p>日本三大古汤之一的白滨温泉就在15分钟圈内。日料名店、海鲜市场、顶级日式料亭——城市的精致与自然的纯粹，在此从容并存。
+         <span class="ja-p">日本三古湯の一つ「白浜温泉」が15分圏内。地元の高級割烹や鮮魚市場など、都市の洗練と大自然の純粋性が、ここで優雅に調和します。</span>
+      </p>
+    </div>
+    <div class="lifestyle-card reveal" style="transition-delay:0.25s">
+      <span class="lifestyle-icon">🏄</span>
+      <h4>大洋冒险运动圈 <span>太平洋を支配するアクティビティ</span></h4>
+      <p>帆板冲浪、海钓、皮划艇、深海浮潜——太平洋是你私人的后花园。每一个清晨，都有全新的冒险在等待着你，从高台俯瞰，一跃入海。
+         <span class="ja-p">ウィンドサーフィン、本格的な海釣り、シーカヤック。太平洋はプライベートバックヤード。毎朝、高台から海を見下ろすたびに、新しい冒険が始まります。</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VILLAS SECTION -->
+<section class="villas-section">
+  <div class="villas-intro">
+    <div class="villas-intro-text reveal">
+      <span class="section-label">Twin Independent Lots · 双墅产权解构 · 独立した2つの所有権</span>
+      <h2 class="section-title">两套大宅<br><em>一个决定</em> <span class="sub-ja">2つの邸宅、1つの決断</span></h2>
+      <p>同一绝壁庄园内，两套拥有完全独立法律产权的海景大宅。视线被精心设计为互不遮挡——居住其中，你感受到的只有无边的太平洋，而非邻居的存在。
+         <span class="ja-inline">同一敷地内に美しく独立した、法的所有権を完全に分けた2棟のヴィラ。互いの視界に干渉しないよう緻密に計算されており、隣人の気配を感じることなく、ただ太平洋の無辺の広がりと同化できます。</span>
+      </p>
+      <p>Villa A 是您在东亚的私人海上宫殿；Villa B 则可作为高奢民宿或VIP招待空间，以旅游红利现金流<strong style="color:var(--text);font-weight:400">轻松覆盖两套庄园的全部持有成本</strong>。
+         <span class="ja-inline">Villa Aは東アジアにおける貴方のプライベートな海上宮殿。Villa Bは最高峰の1棟貸し民泊やVIPレセプションとして運用。インバウンドの恩恵を受け、<strong style="color:var(--text);font-weight:400">2栋全体の年間ランニングコストを容易に相殺</strong>可能です。</span>
+      </p>
+    </div>
+    <div class="reveal" style="transition-delay:0.15s">
+      <!-- Abstract villa visualization -->
+      <svg viewBox="0 0 420 300" style="width:100%;opacity:0.7;">
+        <defs>
+          <linearGradient id="seaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#0a1628;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#061220;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <!-- Sea background -->
+        <rect width="420" height="300" fill="url(#seaGrad)" rx="12"/>
+        <!-- Horizon -->
+        <line x1="0" y1="140" x2="420" y2="140" stroke="rgba(74,158,255,0.2)" stroke-width="0.5"/>
+        <!-- Sun setting -->
+        <circle cx="310" cy="140" r="28" fill="rgba(201,169,110,0.18)" />
+        <circle cx="310" cy="140" r="18" fill="rgba(201,169,110,0.3)" />
+        <!-- Cliff -->
+        <path d="M0,220 L80,200 L100,180 L140,170 L200,168 L260,172 L300,185 L340,200 L420,215 L420,300 L0,300 Z" fill="rgba(30,30,40,0.9)"/>
+        <!-- Villa A outline -->
+        <rect x="120" y="148" width="60" height="35" rx="4" fill="none" stroke="rgba(74,158,255,0.6)" stroke-width="1"/>
+        <rect x="130" y="140" width="40" height="12" rx="2" fill="none" stroke="rgba(74,158,255,0.4)" stroke-width="0.5"/>
+        <text x="150" y="178" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="9" fill="rgba(74,158,255,0.8)" letter-spacing="2">VILLA A</text>
+        <!-- Villa B outline -->
+        <rect x="210" y="152" width="56" height="32" rx="4" fill="none" stroke="rgba(201,169,110,0.6)" stroke-width="1"/>
+        <rect x="218" y="144" width="40" height="12" rx="2" fill="none" stroke="rgba(201,169,110,0.4)" stroke-width="0.5"/>
+        <text x="238" y="180" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="9" fill="rgba(201,169,110,0.8)" letter-spacing="2">VILLA B</text>
+        <!-- Water reflection -->
+        <path d="M0,141 Q210,160 420,141" fill="none" stroke="rgba(201,169,110,0.08)" stroke-width="20"/>
+        <!-- Stars -->
+        <circle cx="50" cy="40" r="1" fill="rgba(255,255,255,0.4)"/>
+        <circle cx="160" cy="25" r="1.5" fill="rgba(255,255,255,0.5)"/>
+        <circle cx="260" cy="55" r="1" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="370" cy="30" r="1" fill="rgba(255,255,255,0.4)"/>
+        <circle cx="90" cy="70" r="0.5" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="340" cy="80" r="1" fill="rgba(255,255,255,0.35)"/>
+        <!-- Ocean shimmers -->
+        <path d="M20,155 Q40,152 60,155" fill="none" stroke="rgba(201,169,110,0.15)" stroke-width="1.5"/>
+        <path d="M350,160 Q370,157 390,160" fill="none" stroke="rgba(201,169,110,0.12)" stroke-width="1"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="villas-grid reveal">
+    <!-- Villa A -->
+    <div class="villa-card">
+      <div class="villa-num">Lot 01 · 独立所有权 · Independent Title</div>
+      <div class="villa-name">Villa A</div>
+      <div class="villa-role">Private Oceanfront Residence</div>
+      <p class="villa-desc">
+        您在太平洋彼岸的私人行宫与高端社交俱乐部。配备智能化生态微网环境系统，即便您不在日本，系统也会自动调节温湿度、运行维护日志、守护木材结构历久弥新。<br><br>
+        这里是您举办亚洲峰会的客厅，也是您独自面对黑潮落日沉思时的禅房。
+        <span class="ja-desc">太平洋を望む私的な離宮、そして最高峰の社交場。自律型マイクログリッドにより、日本不在時も温湿度が自動管理され、木造建築の美しさを永劫に守ります。</span>
+      </p>
+      <div class="villa-footer">100% Separate Title · 视线完美错开 · 智能微网守护</div>
+    </div>
+
+    <!-- Villa B -->
+    <div class="villa-card">
+      <div class="villa-num">Lot 02 · 独立所有权 · Independent Title</div>
+      <div class="villa-name">Villa B</div>
+      <div class="villa-role">Luxury Guest House / Cashflow Asset</div>
+      <p class="villa-desc">
+        高奢海景民宿或VIP独家招待客房——配置100%无人化智能IoT门锁与管控系统，您在世界任何一个角落，都能一键接待高净值访客。<br><br>
+        和歌山旅游红利持续强劲，Villa B 的租金收益可<strong style="color:var(--text);font-weight:400">轻松覆盖两套庄园的全部年度持有成本</strong>，让资产真正自我造血。
+        <span class="ja-desc">最高級のオーシャンリゾート民泊、またはVIPの迎賓館。100%スマートIoTシステムにより世界中から遠隔コントロール。賃益収益による自己資本還元力が魅力です。</span>
+      </p>
+      <div class="villa-footer">Effortless Asset Cashflow · 资产智能造血 · IoT无人管控</div>
+    </div>
+
+    <!-- Price Card -->
+    <div class="villa-card price-card">
+      <div class="price-badge">⟡ Irrepeatable Opportunity · 一次性捡漏</div>
+      <div class="price-main">¥25,000,000</div>
+      <div class="price-unit">JPY · 双墅合计总价</div>
+      <p class="price-tagline">两千五百万日元<br>同时收入两套绝壁海景大宅的完全所有权
+         <span class="ja-line">2,500万円（一括価格）：絶壁に佇む2棟の所有権を同時に掌中へ</span>
+      </p>
+
+      <div class="price-compare">
+        <div class="compare-item">
+          <strong>VS 东京：</strong>仅等同于东京市区一套20㎡陈旧微型公寓的市价——在此，却换来日本国家公园级高台绝壁土地的双重永久主权。
+          <span class="ja-line">【都内比較】都心のわずか20㎡の築古ワンルーム相当の価格で、国立公園級の絶壁地権を永久獲得。</span>
+        </div>
+        <div class="compare-item">
+          <strong>VS 资产折旧：</strong>仅等同于一辆进口跑车两三年内转瞬即逝的折旧损耗——而太平洋的悬崖，只会随稀缺性的增加而升值。
+          <span class="ja-line">【減価償却】高級輸入車のわずか数年の減価償却費と同等。しかし太平洋の崖の価値は高まる一方です。</span>
+        </div>
+      </div>
+
+      <p class="price-note">※ 日本针对海岸高台度假建筑的新建审批已近乎永久封禁，此类资产的物理不可复制性与日俱增，错失即成永恒遗憾。<br>（注：新規開発抑制エリアにつき、本物件の物理的代替性は皆無です）</p>
+    </div>
+  </div>
+</section>
+
+<!-- MANAGEMENT SECTION -->
+<section>
+  <span class="section-label reveal">Global Remote Control · 全球远程管控 · リモートマネジメント</span>
+  <h2 class="section-title reveal">人在海外<br><em>一切无忧</em> <span class="sub-ja">海外に在っても、すべての憂いから免れる</span></h2>
+
+  <div class="mgmt-grid">
+    <div class="mgmt-dashboard reveal">
+      <div class="mgmt-dash-header">
+        <div class="traffic-lights">
+          <div class="tl r"></div>
+          <div class="tl y"></div>
+          <div class="tl g"></div>
+        </div>
+        <span class="dash-title">Kuroshio Estate · Remote Control Dashboard</span>
+      </div>
+      <div class="mgmt-dash-body">
+        <div class="dash-row">
+          <span class="dash-row-label"><div class="dash-dot green"></div>Smart Eco-Grid 生态微网</span>
+          <span class="dash-status green">100% Active</span>
+        </div>
+        <div class="dash-row">
+          <span class="dash-row-label"><div class="dash-dot blue"></div>Auto-Dehumidifier 自动除湿</span>
+          <span class="dash-status blue">Optimal · 42%RH</span>
+        </div>
+        <div class="dash-row">
+          <span class="dash-row-label"><div class="dash-dot white"></div>Security & IoT Lock System</span>
+          <span class="dash-status white">Secured</span>
+        </div>
+        <div class="dash-row">
+          <span class="dash-row-label"><div class="dash-dot green"></div>Monthly Maintenance Log 维护日志</span>
+          <span class="dash-status green">Completed</span>
+        </div>
+        <div class="dash-row">
+          <span class="dash-row-label"><div class="dash-dot blue"></div>Villa B · Guest Booking Status</span>
+          <span class="dash-status blue">2 Upcoming</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mgmt-text reveal" style="transition-delay:0.15s">
+      <p>
+        拥有 The Kuroshio Twins，并不意味着你需要住在须美江。<strong>闭钥匙全覆盖托管服务</strong>确保这套庄园在您缺席时，依然以最完美的状态存在于太平洋的高台之上。
+        <span class="ja-block">黒潮ツインズのオーナーになることは、この地に縛られることを意味しません。**ターンキー型のフルマネジメント体制**により、貴方が世界中どこにいても、邸宅は最高水準の状態を維持し続けます。</span>
+      </p>
+      <div class="mgmt-bullets">
+        <div class="mgmt-bullet">
+          <div class="mgmt-bullet-icon">🔋</div>
+          <div class="text-wrapper">
+            <div>绿色生态微网 24/7 自动运行，太阳能与储能系统协同供电，全年持有能耗费用趋近于零。</div>
+            <div class="ja-desc">エコマイクログリッドが24時間自律駆動。太陽光と蓄電池のシナジーで、不在時の電気基本料金や維持費を極限までセーブ。</div>
+          </div>
+        </div>
+        <div class="mgmt-bullet">
+          <div class="mgmt-bullet-icon">🌡️</div>
+          <div class="text-wrapper">
+            <div>自动温湿度控制系统精准守护日式木材结构，告别海风腐蚀、告别昂贵修缮。</div>
+            <div class="ja-desc">精密な自動調湿システムが木造のコアを守り、塩害や湿気による劣化を徹底排除。将来の高額な修繕負担を予防。</div>
+          </div>
+        </div>
+        <div class="mgmt-bullet">
+          <div class="mgmt-bullet-icon">📱</div>
+          <div class="text-wrapper">
+            <div>IoT 智能门锁与 100% 无人化远程入住系统，Villa B 的高奢民宿运营无需任何人工介入。</div>
+            <div class="ja-desc">IoTスマートロックと完全無人チェックインの連動により、Villa Bの民泊運用は完全オートメーション化。</div>
+          </div>
+        </div>
+        <div class="mgmt-bullet">
+          <div class="mgmt-bullet-icon">🧹</div>
+          <div class="text-wrapper">
+            <div>从高奢清洁、花园维护到结构年检，全套闭环服务一站式托管，无论您身在何处。</div>
+            <div class="ja-desc">プロによるラグジュアリー清掃、庭園の維持、構造点検まで、すべて一元化されたワンストップ受託サービスを提供。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INQUIRE SECTION -->
+<section class="inquire-section" id="inquire">
+  <div class="inquire-inner">
+    <span class="section-label reveal">Acquire the Twins · 开启太平洋隐奢避风港</span>
+    <h2 class="section-title reveal">申请 VIP<br><em>专属访问权限</em> <span class="sub-ja">VIP限定アクセス権の要請</span></h2>
+    <p class="inquire-sub reveal">
+      The Kuroshio Twins 仅开放给极少数认真的买家。<br>填写以下表格后，我们的资产顾问将为您生成专属高清实地资料包，并安排一对一私密洽谈。
+      <span class="ja-block">本アセットは、限られたVIPのお客様にのみ限定開示しております。以下のフォームよりご請求いただければ、非公開のドキュメントパッケージの提供、および個別のご相談を承ります。</span>
+    </p>
+
+    <div class="inquire-form reveal">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Full Name · 姓名 · お名前</label>
+          <input type="text" class="form-input" placeholder="您的全名 / フルネーム">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address · 电子邮箱 · メールアドレス</label>
+          <input type="email" class="form-input" placeholder="your@email.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone / WeChat · 联系方式 · ご連絡先</label>
+        <input type="text" class="form-input" placeholder="电话、微信、またはお電話番号">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Preferred Viewing · 考察方式偏好 · ご希望の検討方法</label>
+        <select class="form-input">
+          <option>High-Definition Remote Video Tour · 远程高清视频考察 / 遠隔HDビデオツアー</option>
+          <option>On-Site VIP Private Tour · 实地贵宾私密考察（含机场接送）/ 現地VIP個別案内（送迎付）</option>
+          <option>Detailed Digital Asset Package · 数字化资产资料包 / デジタル資産資料請求</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message · 留言（选填）· 備考（任意输入）</label>
+        <input type="text" class="form-input" placeholder="您想了解的具体问题... / ご質問、ご要望など...">
+      </div>
+      <button class="form-submit" onclick="this.textContent='✓ Request Sent — We\'ll Contact You Shortly / 送信完了'; this.style.background='var(--emerald)'; this.style.color='var(--bg)';">
+        Request Exclusive Asset Access · 申请专属资产访问权限 / 限定アセットアクセス権を請求する
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">THE KUROSHIO TWINS · 黑潮双墅 · 黒潮ツインズ</span>
+  <span>Wakayama · Susami High-Plateau Estate · Japan</span>
+  <span>© 2026 · Strictly Limited to One Global Buyer / 世界限定1名様の特別オファー</span>
+</footer>
+
+<script>
+// Particle generator
+const container = document.getElementById('particles');
+function createParticle() {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  const size = Math.random() * 3 + 1;
+  p.style.cssText = `
+    width: ${size}px;
+    height: ${size}px;
+    left: ${Math.random() * 100}%;
+    top: ${40 + Math.random() * 50}%;
+    animation-duration: ${6 + Math.random() * 8}s;
+    animation-delay: ${Math.random() * 6}s;
+  `;
+  container.appendChild(p);
+  setTimeout(() => p.remove(), 14000);
+}
+for (let i = 0; i < 18; i++) createParticle();
+setInterval(createParticle, 900);
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Nav shrink on scroll
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 80) {
+    nav.style.padding = '14px 48px';
+  } else {
+    nav.style.padding = '20px 48px';
+  }
+});
+</script>
+</body>
+</html>
