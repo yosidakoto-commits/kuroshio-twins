@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE KUROSHIO TWINS — 黒潮双墅 · 和歌山断崖の聖域</title>
+<title>THE KUROSHIO TWINS — 黒潮双墅 · 和歌山断崖の聖域 · Pacific Oceanfront Sanctuary</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
@@ -81,9 +81,9 @@
   }
 
   .nav-sub {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
-    letter-spacing: 0.10em;
+    letter-spacing: 0.08em;
     color: var(--text3);
     text-transform: uppercase;
   }
@@ -128,7 +128,6 @@
       linear-gradient(to bottom, transparent 0%, rgba(5,5,7,0.4) 60%, var(--bg) 100%);
   }
 
-  /* Animated ocean particles */
   .hero-particles {
     position: absolute;
     inset: 0;
@@ -149,7 +148,6 @@
     100% { transform: translateY(-120px) translateX(30px) scale(0.5); opacity: 0; }
   }
 
-  /* Animated horizon line */
   .hero-horizon {
     position: absolute;
     top: 42%;
@@ -166,23 +164,23 @@
 
   .hero-eyebrow {
     font-size: 12px;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--accent);
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     opacity: 0;
     transform: translateY(16px);
     animation: fadeUp 0.8s 0.3s var(--ease) forwards;
+    line-height: 1.6;
   }
 
   .hero-title {
     font-family: var(--serif);
-    font-size: clamp(54px, 8vw, 110px);
+    font-size: clamp(48px, 7vw, 96px);
     font-weight: 400;
-    line-height: 0.95;
+    line-height: 1.0;
     letter-spacing: -0.02em;
     color: var(--text);
-    max-width: 900px;
+    max-width: 1000px;
     opacity: 0;
     transform: translateY(24px);
     animation: fadeUp 1s 0.5s var(--ease) forwards;
@@ -195,15 +193,20 @@
 
   .hero-desc {
     margin-top: 36px;
-    max-width: 560px;
-    font-size: 15px;
-    line-height: 1.75;
+    max-width: 800px;
+    font-size: 14px;
+    line-height: 1.8;
     color: var(--text2);
     font-weight: 400;
     opacity: 0;
     transform: translateY(16px);
     animation: fadeUp 0.9s 0.8s var(--ease) forwards;
   }
+
+  .hero-desc .lang-block {
+    margin-bottom: 12px;
+  }
+  .hero-desc .lang-block:last-child { margin-bottom: 0; }
 
   .hero-desc strong { color: var(--text); font-weight: 400; }
 
@@ -218,10 +221,10 @@
   }
 
   .tag {
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    padding: 7px 16px;
+    padding: 6px 14px;
     border: 1px solid var(--border2);
     border-radius: 100px;
     color: var(--text2);
@@ -281,17 +284,26 @@
     color: var(--text3);
     margin-bottom: 20px;
     display: block;
+    line-height: 1.6;
   }
 
   .section-title {
     font-family: var(--serif);
-    font-size: clamp(36px, 5vw, 60px);
+    font-size: clamp(32px, 4.5vw, 54px);
     font-weight: 400;
-    line-height: 1.1;
+    line-height: 1.15;
     color: var(--text);
   }
 
   .section-title em { font-style: italic; color: var(--gold); }
+  
+  .section-title .title-sub {
+    display: block;
+    font-size: clamp(18px, 2vw, 24px);
+    color: var(--text3);
+    margin-top: 8px;
+    font-family: var(--sans);
+  }
 
   /* ===== DIVIDER ===== */
   .divider {
@@ -329,7 +341,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     padding: 6px 14px;
@@ -342,26 +354,44 @@
 
   .paradox-col h3 {
     font-family: var(--serif);
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 400;
     margin-bottom: 28px;
     color: var(--text);
+    line-height: 1.3;
+  }
+
+  .paradox-col h3 span {
+    display: block;
+    font-size: 14px;
+    color: var(--text3);
+    font-family: var(--sans);
+    margin-top: 4px;
   }
 
   .paradox-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 24px;
   }
 
   .paradox-list li {
     display: flex;
     gap: 14px;
-    font-size: 14px;
-    line-height: 1.7;
+    font-size: 13px;
+    line-height: 1.6;
     color: var(--text2);
   }
+
+  .paradox-list .lang-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .paradox-list .lang-desc span { display: block; }
+  .paradox-list .lang-desc .en { color: rgba(255,255,255,0.45); }
 
   .paradox-list li .icon {
     flex-shrink: 0;
@@ -399,7 +429,7 @@
 
   .stat-cell {
     background: var(--bg2);
-    padding: 40px 36px;
+    padding: 36px 28px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -407,32 +437,37 @@
 
   .stat-num {
     font-family: var(--serif);
-    font-size: 48px;
+    font-size: 44px;
     font-weight: 400;
     line-height: 1;
     color: var(--text);
   }
 
-  .stat-num span { font-size: 24px; color: var(--gold); }
+  .stat-num span { font-size: 22px; color: var(--gold); }
 
   .stat-label {
-    font-size: 13px;
+    font-size: 11px;
     letter-spacing: 0.06em;
     color: var(--text3);
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
+    line-height: 1.4;
   }
 
   .stat-desc {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text2);
-    line-height: 1.6;
+    line-height: 1.5;
     margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
   }
+  .stat-desc .en { color: rgba(255,255,255,0.45); }
 
   /* ===== LIFESTYLE SECTION ===== */
   .lifestyle-header {
-    max-width: 700px;
+    max-width: 800px;
     margin-bottom: 80px;
   }
 
@@ -446,7 +481,7 @@
     background: var(--bg2);
     border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 36px;
+    padding: 32px;
     transition: all 0.4s var(--ease);
     cursor: default;
     position: relative;
@@ -466,32 +501,43 @@
   .lifestyle-card:hover::before { opacity: 1; }
 
   .lifestyle-icon {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 26px;
+    margin-bottom: 16px;
     display: block;
   }
 
   .lifestyle-card h4 {
     font-family: var(--serif);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
     color: var(--text);
-    margin-bottom: 12px;
-    line-height: 1.2;
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .lifestyle-card h4 span {
+    display: block;
+    font-size: 13px;
+    color: var(--text3);
+    font-family: var(--sans);
+    margin-top: 2px;
   }
 
-  .lifestyle-card p {
-    font-size: 13px;
+  .lifestyle-card .card-body-lang {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12.5px;
+    line-height: 1.6;
     color: var(--text2);
-    line-height: 1.75;
   }
+  .lifestyle-card .card-body-lang .en { color: rgba(255,255,255,0.45); }
 
   .lifestyle-video-link {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     margin-top: 16px;
-    font-size: 13px;
+    font-size: 11px;
     letter-spacing: 0.1em;
     color: var(--accent);
     text-decoration: none;
@@ -507,22 +553,24 @@
 
   .villas-intro {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 64px;
     align-items: start;
     margin-bottom: 80px;
   }
 
-  .villas-intro-text p {
-    font-size: 15px;
-    line-height: 1.8;
+  .villas-intro-text .intro-p-block {
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 1.7;
     color: var(--text2);
-    margin-top: 20px;
   }
+  .villas-intro-text .intro-p-block p { margin-bottom: 6px; }
+  .villas-intro-text .intro-p-block .en { color: rgba(255,255,255,0.45); }
 
   .villas-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1.1fr;
     gap: 2px;
     background: var(--border);
     border-radius: 20px;
@@ -531,7 +579,7 @@
 
   .villa-card {
     background: var(--bg3);
-    padding: 48px 40px;
+    padding: 44px 36px;
     display: flex;
     flex-direction: column;
   }
@@ -552,8 +600,8 @@
   }
 
   .villa-num {
-    font-size: 12px;
-    letter-spacing: 0.12em;
+    font-size: 11px;
+    letter-spacing: 0.10em;
     text-transform: uppercase;
     color: var(--text3);
     margin-bottom: 16px;
@@ -564,38 +612,44 @@
     font-size: 32px;
     font-weight: 400;
     color: var(--text);
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
 
   .villa-role {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--gold);
     letter-spacing: 0.05em;
     text-transform: uppercase;
     margin-bottom: 24px;
+    line-height: 1.4;
   }
 
   .villa-desc {
     font-size: 13px;
+    line-height: 1.6;
     color: var(--text2);
-    line-height: 1.8;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
+  .villa-desc .en { color: rgba(255,255,255,0.45); }
 
   .villa-footer {
     margin-top: 32px;
     padding-top: 24px;
     border-top: 1px solid var(--border);
-    font-size: 13px;
+    font-size: 11px;
     color: var(--text3);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
   }
 
   /* Price card specific */
   .price-badge {
     display: inline-flex;
     align-items: center;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: rgba(74,158,255,0.9);
@@ -608,7 +662,7 @@
 
   .price-main {
     font-family: var(--serif);
-    font-size: 52px;
+    font-size: 48px;
     font-weight: 400;
     color: var(--text);
     line-height: 1;
@@ -616,50 +670,49 @@
   }
 
   .price-unit {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--text3);
-    margin-bottom: 6px;
+    margin-bottom: 12px;
   }
 
   .price-tagline {
     font-size: 13px;
     color: var(--text2);
-    line-height: 1.6;
-    margin-bottom: 32px;
-    padding-bottom: 28px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
     border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 
   .price-compare {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
 
   .compare-item {
     background: rgba(0,0,0,0.25);
     border-radius: 10px;
-    padding: 14px 16px;
-    font-size: 12px;
+    padding: 12px 14px;
+    font-size: 11.5px;
     color: rgba(200,210,230,0.75);
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   .compare-item strong { color: rgba(74,158,255,0.85); font-weight: 400; }
 
   .price-note {
-    margin-top: 28px;
-    font-size: 13px;
-    color: rgba(74,158,255,0.55);
-    line-height: 1.6;
-    letter-spacing: 0.02em;
+    margin-top: 24px;
+    font-size: 11.5px;
+    color: rgba(74,158,255,0.6);
+    line-height: 1.5;
   }
 
   /* ===== MGMT SECTION ===== */
   .mgmt-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 64px;
     align-items: center;
     margin-top: 64px;
   }
@@ -694,9 +747,10 @@
   .tl.g { background: rgba(39,201,63,0.6); }
 
   .dash-title {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text3);
     letter-spacing: 0.05em;
+    line-height: 1.4;
   }
 
   .mgmt-dash-body { padding: 24px; }
@@ -716,11 +770,12 @@
   .dash-row:hover { background: var(--surface2); }
 
   .dash-row-label {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text2);
     display: flex;
     align-items: center;
     gap: 10px;
+    line-height: 1.4;
   }
 
   .dash-dot {
@@ -734,33 +789,50 @@
   .dash-dot.white { background: var(--text); }
 
   .dash-status {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
+    line-height: 1.4;
+    text-align: right;
   }
 
   .dash-status.green { color: var(--emerald); }
   .dash-status.blue { color: var(--accent); }
   .dash-status.white { color: var(--text); }
 
-  .mgmt-text { }
-  .mgmt-text p { font-size: 15px; color: var(--text2); line-height: 1.8; margin-top: 24px; }
+  .mgmt-text p {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.6;
+    margin-top: 16px;
+  }
+  .mgmt-text .mgmt-p-block {
+    margin-bottom: 20px;
+  }
+  .mgmt-text .mgmt-p-block .en { color: rgba(255,255,255,0.45); }
   .mgmt-text p strong { color: var(--text); font-weight: 400; }
 
   .mgmt-bullets {
     margin-top: 32px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
   }
 
   .mgmt-bullet {
     display: flex;
     gap: 16px;
     align-items: flex-start;
-    font-size: 13px;
+    font-size: 12.5px;
     color: var(--text2);
     line-height: 1.6;
   }
+
+  .mgmt-bullet .bullet-lang {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .mgmt-bullet .bullet-lang .en { color: rgba(255,255,255,0.45); }
 
   .mgmt-bullet-icon {
     width: 28px; height: 28px;
@@ -780,19 +852,23 @@
   }
 
   .inquire-inner {
-    max-width: 680px;
+    max-width: 720px;
     margin: 0 auto;
     text-align: center;
   }
 
-  .inquire-inner .section-title { margin-bottom: 12px; }
+  .inquire-inner .section-title { margin-bottom: 16px; }
 
   .inquire-sub {
-    font-size: 15px;
+    font-size: 13.5px;
     color: var(--text2);
-    line-height: 1.7;
-    margin-bottom: 56px;
+    line-height: 1.6;
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
+  .inquire-sub .en { color: rgba(255,255,255,0.45); }
 
   .inquire-form {
     background: var(--bg3);
@@ -808,11 +884,12 @@
 
   .form-label {
     display: block;
-    font-size: 12px;
-    letter-spacing: 0.10em;
+    font-size: 11px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text3);
     margin-bottom: 10px;
+    line-height: 1.4;
   }
 
   .form-input {
@@ -821,7 +898,7 @@
     border: 1px solid var(--border2);
     border-radius: 12px;
     padding: 14px 18px;
-    font-size: 14px;
+    font-size: 13.5px;
     font-family: var(--sans);
     font-weight: 400;
     color: var(--text);
@@ -847,7 +924,7 @@
     border-radius: 100px;
     padding: 16px 32px;
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -872,9 +949,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 13px;
+    font-size: 11.5px;
     color: var(--text3);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
   }
 
   .footer-brand {
@@ -922,33 +1000,46 @@
 
   .quote-text {
     font-family: var(--serif);
-    font-size: clamp(28px, 4vw, 52px);
+    font-size: clamp(22px, 3vw, 40px);
     font-weight: 400;
     font-style: italic;
     color: var(--text2);
-    line-height: 1.4;
-    max-width: 900px;
+    line-height: 1.5;
+    max-width: 1050px;
     margin: 0 auto;
     position: relative;
   }
 
   .quote-text em { color: var(--gold); font-style: normal; }
+  
+  .quote-text span {
+    display: block;
+    margin-top: 12px;
+  }
+  .quote-text .en {
+    font-size: clamp(14px, 1.8vw, 22px);
+    color: rgba(255,255,255,0.45);
+  }
 
   /* ===== MOBILE ===== */
+  @media (max-width: 992px) {
+    .villas-grid { grid-template-columns: 1fr; gap: 16px; background: transparent; }
+    .lifestyle-grid { grid-template-columns: 1fr 1fr; }
+  }
+
   @media (max-width: 768px) {
     nav { padding: 16px 20px; }
     section { padding: 80px 20px; }
     .hero { padding: 0 20px 60px; }
-    .hero-title { font-size: 48px; }
+    .hero-title { font-size: 38px; }
     .hero-scroll { display: none; }
     .paradox-grid { grid-template-columns: 1fr; }
     .stats-row { grid-template-columns: 1fr 1fr; }
     .lifestyle-grid { grid-template-columns: 1fr; }
-    .villas-grid { grid-template-columns: 1fr; }
     .villas-intro { grid-template-columns: 1fr; gap: 40px; }
     .mgmt-grid { grid-template-columns: 1fr; }
     .form-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 12px; text-align: center; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
     .wide-quote { padding: 60px 20px; }
   }
 </style>
@@ -959,9 +1050,9 @@
 <nav>
   <div class="nav-brand">
     <span class="nav-title">THE KUROSHIO TWINS</span>
-    <span class="nav-sub">和歌山県・須美江 · Wakayama Oceanfront Estate</span>
+    <span class="nav-sub">和歌山県・须美江 · 黒潮双墅 · Wakayama Oceanfront Estate</span>
   </div>
-  <a href="#inquire" class="nav-cta">内覧申請 · VIP Access</a>
+  <a href="#inquire" class="nav-cta">内覧申請 · VIP ACCESS · 预约内览</a>
 </nav>
 
 <!-- HERO -->
@@ -978,21 +1069,34 @@
   </svg>
 
   <div style="position:relative;z-index:2;">
-    <p class="hero-eyebrow">和歌山県・日本 · 南紀白浜空港より15分 · 太平洋を望む断崖の頂</p>
-    <h1 class="hero-title">
-      Claim Your<br><em>Pacific Sovereignty</em><br><span style="font-size:clamp(20px,2.5vw,32px);color:rgba(255,255,255,0.55);font-style:normal;font-weight:400;letter-spacing:0.04em;">黒潮を望む、断崖の絶対主権</span>
-    </h1>
-    <p class="hero-desc">
-      两套拥有<strong>完全独立产权</strong>的绝壁海景大宅，栖于和歌山须美江高台之上。<br>
-      黑潮海流，天然悬崖，180° 全景落日——以无法复制的大自然力量，
-      为您的资产注入永恒的<strong>稀缺性与安全感</strong>。
+    <p class="hero-eyebrow">
+      和歌山県・日本 · 南紀白浜空港より15分 · 太平洋を望む断崖の頂<br>
+      和歌山 · 距南纪白浜机场15分钟 · 俯瞰太平洋的绝壁之巅<br>
+      Wakayama, Japan · 15 Mins from Nanki-Shirahama Airport · Atop the Pacific Cliff Edge
     </p>
+    <h1 class="hero-title">
+      Claim Your<br><em>Pacific Sovereignty</em><br>
+      <span style="font-size:clamp(18px,2.2vw,28px);color:rgba(255,255,255,0.55);font-style:normal;font-weight:400;letter-spacing:0.04em; display:block; margin-top:10px;">
+        黒潮を望む、断崖の絶対主権 ／ 黑潮之畔，断崖的绝对主权
+      </span>
+    </h1>
+    <div class="hero-desc">
+      <div class="lang-block">
+        两套拥有<strong>完全独立产权</strong>的绝壁海景大宅，栖于和歌山须美江高台之上。黑潮海流，天然悬崖，180°全景落日——以无法复制的大自然力量，为您的资产注入永恒的<strong>稀缺性与安全感</strong>。
+      </div>
+      <div class="lang-block" style="color: rgba(255,255,255,0.5);">
+        和歌山県須美江の高台に佇む、<strong>完全独立所有権</strong>を持つ2棟の絶壁オーシャンフロント邸宅。黒潮の潮流、天然の断崖、そして180°パノラマの落日。複製不可能な自然の力が、あなたの資産に永遠の<strong>希少性と安全性</strong>をもたらします。
+      </div>
+      <div class="lang-block en" style="color: rgba(255,255,255,0.45);">
+        Two oceanfront sanctuaries with <strong>complete independent land titles</strong>, perched high above Sumie, Wakayama. The Kuroshio Current, pristine cliffs, and a 180° sunset panorama—unreplicable forces of nature that inject timeless <strong>scarcity and security</strong> into your asset portfolio.
+      </div>
+    </div>
     <div class="hero-tags">
       <span class="tag">180° Pacific Panorama</span>
-      <span class="tag accent">⬡ 津波免疫 · 高台絶対安全</span>
-      <span class="tag gold">¥25,000,000 JPY · 2棟合計</span>
+      <span class="tag accent">⬡ 津波免疫 · 高台絶対安全 · Tsunami Proof</span>
+      <span class="tag gold">¥25,000,000 JPY · 2棟合計総額 · Total Package</span>
       <span class="tag">Eco Smart Microgrid</span>
-      <span class="tag">独立所有権 × 2棟</span>
+      <span class="tag">独立所有権 × 2棟 · Twin Independent Titles</span>
     </div>
   </div>
 
@@ -1005,45 +1109,77 @@
 <!-- PARADOX SOLVED -->
 <section class="paradox">
   <div class="reveal">
-    <span class="section-label">The Oceanfront Paradox Solved · 海景資産の矛盾を解く</span>
-    <h2 class="section-title">海景の夢を阻む<br><em>矛盾を、解決した</em></h2>
+    <span class="section-label">
+      The Oceanfront Paradox Solved · 海景資産の矛盾を解く · 破解海景资产的永恒矛盾
+    </span>
+    <h2 class="section-title">
+      海景の夢を阻む<em>矛盾を、解決した</em>
+      <span class="title-sub">海景别墅的软肋，在此被彻底终结 ／ The Ultimate Solution to the Oceanfront Dilemma</span>
+    </h2>
   </div>
 
   <div class="paradox-grid reveal">
+    <!-- Conventional Problem -->
     <div class="paradox-col">
-      <div class="paradox-col-badge bad">✕ &nbsp; 従来の海岸物件</div>
-      <h3>永続する脆弱性</h3>
+      <div class="paradox-col-badge bad">✕ &nbsp; 従来の海岸物件 ／ 传统临海物业 ／ Conventional Oceanfront</div>
+      <h3>永続する脆弱性<span>永恒的脆弱性 ／ Perpetual Vulnerability</span></h3>
       <ul class="paradox-list">
         <li>
           <div class="icon x">✕</div>
-          <span>低標高の立地は、津波と高潮への絶えぬ不安を意味する——沈黙の恐怖が、常に資産価値の底を侵食する。</span>
+          <div class="lang-desc">
+            <span>低标高立地意味着对海啸与高潮的无尽担忧——无声的恐惧时刻侵蚀着资产的底层价值。</span>
+            <span>低標高の立地は、津波や高潮への絶えぬ不安を意味する。沈黙の恐怖が常に資産価値の底を侵食する。</span>
+            <span class="en">Low-elevation builds invite perpetual anxiety over tsunamis and storm surges, silently eroding long-term asset value.</span>
+          </div>
         </li>
         <li>
           <div class="icon x">✕</div>
-          <span>塩害による腐食に長期さらされ、建築構造が急速に劣化し、維持コストが波のように押し寄せる。</span>
+          <div class="lang-desc">
+            <span>长期暴露于盐害中导致建筑结构迅速劣化，高昂的维护成本如潮水般涌来。</span>
+            <span>塩害による腐食に長期さらされ、建築構造が急速に劣化。維持コストが波のように押し寄せる。</span>
+            <span class="en">Constant salt air exposure causes rapid structural degradation, bringing endless waves of heavy maintenance costs.</span>
+          </div>
         </li>
         <li>
           <div class="icon x">✕</div>
-          <span>台風シーズンには脆弱な電力網が頻繁に停電し、海外からの資産管理が不可能となる。</span>
+          <div class="lang-desc">
+            <span>台风季节脆弱的公共电网频频断电，导致海外远程资产管理难以为继。</span>
+            <span>台風シーズンには脆弱なインフラ電網が頻繁に停電し、海外からの遠隔資産管理が不可能になる。</span>
+            <span class="en">Fragile public grids fail frequently during typhoon seasons, leaving overseas owners unable to manage or monitor assets.</span>
+          </div>
         </li>
       </ul>
     </div>
+    
+    <!-- The Kuroshio Twins Solution -->
     <div class="paradox-col solution">
       <div class="solution-glow"></div>
-      <div class="paradox-col-badge good">◉ &nbsp; The Kuroshio Twins · 解答</div>
-      <h3>絶対的な制御と静寂</h3>
+      <div class="paradox-col-badge good">◉ &nbsp; The Kuroshio Twins · 解答 ／ Absolute Sovereignty</div>
+      <h3>绝对的控制与静谧<span>絶対的な制御と静寂 ／ Absolute Control & Serenity</span></h3>
       <ul class="paradox-list">
         <li>
           <div class="icon check">✓</div>
-          <span><strong style="color:var(--text);font-weight:400">100% 津波免疫</strong>——堅固な岩盤の断崖高台に佇み、その標高が自然災害リスクを物理的に完全遮断する。</span>
+          <div class="lang-desc">
+            <span><strong>100% 海啸免疫</strong> —— 伫立于坚固岩盘的断崖高台，其物理标高将自然灾害风险完全隔绝。</span>
+            <span><strong>100% 津波免疫</strong> —— 堅固な岩盤の断崖高台に佇み、その標高が自然災害リスクを物理的に完全遮断。</span>
+            <span class="en"><strong>100% Tsunami Immune</strong> — Positioned high upon solid bedrock cliffs, physically neutralizing natural disaster risks.</span>
+          </div>
         </li>
         <li>
           <div class="icon check">✓</div>
-          <span><strong style="color:var(--text);font-weight:400">エコ・スマートマイクログリッド</strong>——再生可能エネルギー自給、待機コストほぼゼロ、海外にいても資産が静かに稼働し続ける。</span>
+          <div class="lang-desc">
+            <span><strong>绿色智能微电网</strong> —— 离网级光储自给，待机成本几乎为零，即使身在海外，资产依然安静自主运转。</span>
+            <span><strong>エコ・スマートマイクログリッド</strong> —— 再生可能エネルギー自給、待機コストほぼゼロ。海外にいても資産が静かに稼働。</span>
+            <span class="en"><strong>Eco Smart Microgrid</strong> — Solar and battery self-sufficiency with near-zero standby costs. Your asset runs quietly while you are abroad.</span>
+          </div>
         </li>
         <li>
           <div class="icon check">✓</div>
-          <span><strong style="color:var(--text);font-weight:400">自動換気・除湿システム</strong>——木造建築を精密に保護し、海風の侵食を防ぎ、世代を超えて新築同様の状態を保つ。</span>
+          <div class="lang-desc">
+            <span><strong>恒温恒湿除湿系统</strong> —— 精准保护木结构建筑，抵御海风侵蚀，跨越世代仍能保持新筑品质。</span>
+            <span><strong>自動換気・除湿システム</strong> —— 木造建築を精密に保護し、海風の侵食を防ぐ。世代を超えて新築同様を維持。</span>
+            <span class="en"><strong>Automated Climate Control</strong> — Advanced dehumidification protects the wooden structure from salt corrosion, preserving premium quality for generations.</span>
+          </div>
         </li>
       </ul>
     </div>
@@ -1053,73 +1189,123 @@
   <div class="stats-row reveal">
     <div class="stat-cell">
       <div class="stat-num">180<span>°</span></div>
-      <div class="stat-label">太平洋パノラマ</div>
-      <div class="stat-desc">遮るものなき黒潮の夕景、西向き断崖から太平洋を一望</div>
+      <div class="stat-label">太平洋パノラマ ／ 太平洋全景 ／ Pacific Panorama</div>
+      <div class="stat-desc">
+        <span>西向断崖，毫无遮挡的黑潮落日绝景。</span>
+        <span>遮るものなき黒潮の夕景、西向き断崖から一望。</span>
+        <span class="en">Unobstructed Kuroshio sunset views from a west-facing cliff.</span>
+      </div>
     </div>
     <div class="stat-cell">
       <div class="stat-num">15<span>min</span></div>
-      <div class="stat-label">空港からの所要時間</div>
-      <div class="stat-desc">南紀白浜空港から快適な沿岸道路を経て邸宅の門まで</div>
+      <div class="stat-label">空港からのアクセス ／ 机场生活圈 ／ Airport Proximity</div>
+      <div class="stat-desc">
+        <span>从南纪白浜机场经由舒适沿海公路直达邸宅。</span>
+        <span>南紀白浜空港から快適な沿岸道路を経て邸宅の門まで。</span>
+        <span class="en">A seamless, scenic drive from Nanki-Shirahama Airport to your gates.</span>
+      </div>
     </div>
     <div class="stat-cell">
       <div class="stat-num">2<span>lots</span></div>
-      <div class="stat-label">独立所有権の棟数</div>
-      <div class="stat-desc">完全独立した権利証、視野は精密に設計され互いに干渉しない</div>
+      <div class="stat-label">独立所有権の棟数 ／ 独立产权栋数 ／ Independent Titles</div>
+      <div class="stat-desc">
+        <span>完全独立的双产权证，视野经精密设计互不干扰。</span>
+        <span>完全独立した権利証、視野は精密に設計され互いに干渉しない。</span>
+        <span class="en">Two entirely distinct deeds. Privacy and views are mathematically separated.</span>
+      </div>
     </div>
     <div class="stat-cell">
       <div class="stat-num">≈0<span>%</span></div>
-      <div class="stat-label">待機時光熱費</div>
-      <div class="stat-desc">エコマイクログリッドが年間自動稼働し、保有コストはほぼ皆無</div>
+      <div class="stat-label">待機時光熱費 ／ 零待机持有能耗 ／ Standby Energy Cost</div>
+      <div class="stat-desc">
+        <span>绿色微电网全年自动无感运行，持有成本微乎其微。</span>
+        <span>エコマイクログリッドが自動稼働し、保有コストはほぼ皆無。</span>
+        <span class="en">The microgrid manages itself year-round, rendering standby utility fees obsolete.</span>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- WIDE QUOTE -->
 <div class="wide-quote">
-  <p class="quote-text reveal">
-    「日本において、海岸高台の別荘建築許可は<em>事実上永久に閉ざされた</em>——<br>
-    The Kuroshio Twins は、太平洋が差し出す最後の断崖主権への入場券だ。」
-  </p>
+  <div class="quote-text reveal">
+    「日本において、海岸高台の別荘建築許可は<em>事実上永久に閉ざされた</em>——<br>The Kuroshio Twins は、太平洋が差し出す最後の断崖主権への入場券だ。」
+    <span class="zh">“在日本，海岸线高台的别墅建筑许可<em>已被事实上面向未来永久封印</em>——<br>黑潮双墅，是太平洋向您发出的最后一张断崖主权入场券。”</span>
+    <span class="en">"In Japan, building permits for high-cliff oceanfront villas are <em>virtually frozen forever</em>—<br>The Kuroshio Twins represents your definitive, final passport to Pacific cliffside sovereignty."</span>
+  </div>
 </div>
 
 <!-- LIFESTYLE SECTION -->
 <section>
   <div class="lifestyle-header reveal">
-    <span class="section-label">15分圏の利便性 · 世界水準のライフスタイル</span>
-    <h2 class="section-title">卓越なインフラが<br><em>神聖な静寂</em>と出会う</h2>
+    <span class="section-label">15分圏の利便性 · 世界水準のライフスタイル · 15分钟世界级生活圈</span>
+    <h2 class="section-title">
+      卓越なインフラが<em>神聖な静寂</em>と出会う
+      <span class="title-sub">当顶级现代化基础设施碰撞神圣的旷野静谧 ／ Where Elite Infrastructure Meets Sacred Sanctuary</span>
+    </h2>
   </div>
 
   <div class="lifestyle-grid">
+    <!-- 1 -->
     <div class="lifestyle-card reveal">
       <span class="lifestyle-icon">🌅</span>
-      <h4>黒潮の夕景</h4>
-      <p>完璧な西向き断崖の視野から、巨大な紅い太陽が遮るものなく純粋な黒潮の水平線へと沈み、大海原を流れる黄金に染め上げる。東京の高級物件が決して与えられない光景。</p>
+      <h4>黑潮之畔的壮丽落日<span>黒潮の夕景 ／ Kuroshio Sunsets</span></h4>
+      <div class="card-body-lang">
+        <span>完美的正西向断崖视野，看一轮红日毫无阻挡地沉入纯净的黑潮水平线，将大海染成流淌的金海。这是身处东京核心区的高端物业永远无法奢求的旷世景观。</span>
+        <span>完璧な西向き断崖の視野から、巨大な紅い太陽が遮るものなく純粋な黒潮の水平線へと沈み、大海原を黄金に染め上げる。東京の高級物件が決して与えられない光景。</span>
+        <span class="en">Perched perfectly west on the cliff face, watch a massive crimson sun sink beneath the horizon, painting the sea in gold. A spectacle no luxury penthouse in Tokyo could ever offer.</span>
+      </div>
     </div>
-    <div class="lifestyle-card reveal" style="transition-delay:0.1s">
-      <span class="lifestyle-icon">🤿</span>
-      <h4>世界クラスのダイビング</h4>
-      <p>須美江海域は驚異的な透明度を誇り、水中の珊瑚生態系は夢のように豊か。玄関を出てすぐ、タンクを背負って蒼い海へ、または太平洋の貿易風に乗って波を切る。</p>
-    </div>
-    <div class="lifestyle-card reveal" style="transition-delay:0.2s">
-      <span class="lifestyle-icon">🚴</span>
-      <h4>熊野古道サイクリング</h4>
-      <p>世界遺産・熊野古道がすぐそこに、国立公園級のサイクリングロードが断崖に沿って延びる。森、海、古道——所有するのは物件ではなく、自然世界全体への入場券だ。</p>
-    </div>
+    <!-- 2 -->
     <div class="lifestyle-card reveal" style="transition-delay:0.05s">
-      <span class="lifestyle-icon">✈️</span>
-      <h4>わずか15分</h4>
-      <p>南紀白浜空港は国内主要都市への直行便を運航。険しい山道は一切なく、広々とした沿岸国道を快適にドライブ。空港から邸宅の門まで、ただの15分。</p>
-      <a href="https://youtu.be/jvqvPjzECI8" target="_blank" class="lifestyle-video-link">▶ 実際のドライブ映像を見る</a>
+      <span class="lifestyle-icon">🤿</span>
+      <h4>世界级潜水圣地<span>世界クラスのダイビング ／ World-Class Diving</span></h4>
+      <div class="card-body-lang">
+        <span>须美江海域拥有惊人的海水透明度，水下的珊瑚生态繁盛如梦境。踏出家门即可背上气瓶潜入苍蓝，或者乘着太平洋的信风破浪前行。</span>
+        <span>須美江海域は驚異的な透明度を誇り、水中の珊瑚生態系は夢のように豊か。玄関を出てすぐ、タンクを背負って蒼い海へ、または太平洋の貿易風に乗って波を切る。</span>
+        <span class="en">The waters of Sumie boast astonishing clarity and a dreamlike coral reef ecosystem. Step right out of your estate and dive directly into the deep blue, or catch the trade winds across the swell.</span>
+      </div>
     </div>
+    <!-- 3 -->
+    <div class="lifestyle-card reveal" style="transition-delay:0.1s">
+      <span class="lifestyle-icon">🚴</span>
+      <h4>世界遗产 熊野古道骑行<span>熊野古道サイクリング ／ Kumano Kodo Cycling</span></h4>
+      <div class="card-body-lang">
+        <span>世界文化遗产熊野古道近在咫尺，国家公园级的沿海骑行公路紧贴着断崖蜿蜒延伸。森林、山峦、古道与大海——您拥有的不仅是一处房产，而是整个自然世界的入场券。</span>
+        <span>世界遺産・熊野古道がすぐそこに、国立公園級のサイクリングロードが断崖に沿って延びる。森、海、古道——所有するのは物件ではなく、自然世界全体への入場券だ。</span>
+        <span class="en">The UNESCO World Heritage Kumano Kodo is at your doorstep, with national park-grade cycling roads tracing the cliff line. Forest, ocean, historic trails—you are buying a key to the natural universe.</span>
+      </div>
+    </div>
+    <!-- 4 -->
     <div class="lifestyle-card reveal" style="transition-delay:0.15s">
-      <span class="lifestyle-icon">♨️</span>
-      <h4>南紀白浜・温泉文化</h4>
-      <p>日本三古湯の一つ、白浜温泉が15分圏内。名割烹、新鮮な海鮮市場、一流の料亭——都市の洗練と自然の純粋さが、ここに悠然と共存する。</p>
+      <span class="lifestyle-icon">✈️</span>
+      <h4>离尘不离世的15分钟<span>わずか15分 ／ Mere 15 Minutes</span></h4>
+      <div class="card-body-lang">
+        <span>南纪白浜机场提供便捷通往国内核心枢纽机场的直飞航班。无需舟车劳顿或穿行险峻山路，全程皆是宽阔平坦的沿海国道。从机场落地的门，到您邸宅的门，仅需惬意的15分钟。</span>
+        <span>南紀白浜空港は国内主要都市への直行便を運航。険しい山道は一切なく、広々とした沿岸国道を快適にドライブ。空港から邸宅の門まで、ただの15分。</span>
+        <span class="en">Nanki-Shirahama Airport connects you directly to major domestic hubs. Skip the stressful mountain passes; enjoy a scenic drive along the open coastal highway. From landing strip to estate gate: just 15 minutes.</span>
+      </div>
+      <a href="https://youtu.be/jvqvPjzECI8" target="_blank" class="lifestyle-video-link">▶ DRIVE VIDEO · 実際のドライブ映像 · 视察路线实拍</a>
     </div>
+    <!-- 5 -->
+    <div class="lifestyle-card reveal" style="transition-delay:0.2s">
+      <span class="lifestyle-icon">♨️</span>
+      <h4>南纪白浜千年温泉文化<span>南紀白浜・温泉文化 ／ Shirahama Hot Spring Culture</span></h4>
+      <div class="card-body-lang">
+        <span>作为日本三大古名汤之一的白浜温泉就在15分钟生活圈内。远近闻名的割烹、每日现捕的新鲜海鲜市场、一流的日式料亭——都市的精致优雅与自然的纯净旷野在此悠然共生。</span>
+        <span>日本三古湯の一つ、白浜温泉が15分圏内。名割烹、新鮮な海鮮市場、一流の料亭——都市の洗練と自然の純粋さが、ここに悠然と共存する。</span>
+        <span class="en">Shirahama Onsen, one of Japan’s three oldest hot spring towns, is within 15 minutes. Michelin-style kappo, fresh seafood markets, and fine dining—urban refinement seamlessly coexists with untamed nature.</span>
+      </div>
+    </div>
+    <!-- 6 -->
     <div class="lifestyle-card reveal" style="transition-delay:0.25s">
       <span class="lifestyle-icon">🏄</span>
-      <h4>大洋アドベンチャー</h4>
-      <p>ウィンドサーフィン、海釣り、カヤック、ディープスノーケリング——太平洋はあなたのプライベートな庭。高台から見渡し、毎朝新しい冒険が待っている。</p>
+      <h4>大洋冒险家的私人主场<span>大洋アドベンチャー ／ Deep Ocean Adventure</span></h4>
+      <div class="card-body-lang">
+        <span>帆板冲浪、近海海钓、皮划艇探险、深水浮潜——整片太平洋都是您的私人后花园。每当日出东方，在高台之上俯瞰澎湃海洋，新一天的无尽冒险已在脚下等候。</span>
+        <span>ウィンドサーフィン, 海釣り, カヤック, ディープスノーケリング——太平洋はあなたのプライベートな庭。高台から見渡し、毎朝新しい冒険が待っている。</span>
+        <span class="en">Windsurfing, deep-sea fishing, kayaking, ocean snorkeling—the Pacific acts as your backyard playground. Look down from your fortress peak each morning to choose your daily adventure.</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1130,10 +1316,21 @@
 <section class="villas-section">
   <div class="villas-intro">
     <div class="villas-intro-text reveal">
-      <span class="section-label">2棟独立所有権 · Twin Independent Lots</span>
-      <h2 class="section-title">2棟の邸宅<br><em>ひとつの決断</em></h2>
-      <p>同じ断崖エステート内に、完全に独立した法的所有権を持つ2棟の海景邸宅。視線は互いに遮らないよう精密に設計され——そこに感じるのは、果てしない太平洋だけで、隣人の存在ではない。</p>
-      <p>Villa A は東アジアにおけるあなたの私的海上宮殿；Villa B は高級民泊またはVIP専用ゲストハウスとして、観光収益で<strong style="color:var(--text);font-weight:400">2棟のエステート保有コストを完全にカバー</strong>できる。</p>
+      <span class="section-label">2棟独立所有権 · Twin Independent Lots · 两栋完全独立产权</span>
+      <h2 class="section-title">
+        2棟の邸宅、<em>ひとつの決断</em>
+        <span class="title-sub">双栋墅体，一次远见卓识的资产决策 ／ Two Villas, One Masterful Strategy</span>
+    </h2>
+      <div class="intro-p-block">
+        <p>在同一片绝壁庄园（Estate）内，您将一次性获得两栋拥有完全独立法定所有权的海景邸宅。空间视野经过极其严苛的建筑几何计算，确保彼此视线完全不重叠——在这里，您感受到的只有无限绵延的太平洋，而非邻里的存在。</p>
+        <p style="color: rgba(255,255,255,0.55);">同じ断崖エステート内に、完全に独立した法的所有権を持つ2棟の海景邸宅。視線は互いに遮らないよう精密に設計され、そこに感じるのは、果てしない太平洋だけで、隣人の存在ではありません。</p>
+        <p class="en">Two waterfront estates inside a single cliff sanctuary, each holding entirely independent legal titles. The spatial layout is mathematically calculated to eliminate visual overlap—ensuring you feel only the boundless Pacific, never a neighbor.</p>
+      </div>
+      <div class="intro-p-block">
+        <p><strong>Villa A</strong> 可作为您在东亚的私密海上行宫与高阶社交私域；<strong>Villa B</strong> 则可作为高端度假民宿或VIP贵宾专属客房运行。通过旅游度假红利带来的充沛现金流，<strong>Villa B 的收益完全能够覆盖整片庄园的两栋持有成本</strong>，实现资产的自我造血与内循环。</p>
+        <p style="color: rgba(255,255,255,0.55);">Villa Aは東アジアにおけるあなたの私的海上宮殿；Villa Bは高級民泊またはVIP専用ゲストハウスとして、観光収益で<strong>2棟のエステート保有コストを完全にカバー</strong>できます。</p>
+        <p class="en">Designate <strong>Villa A</strong> as your private maritime palace in East Asia, while operating <strong>Villa B</strong> as a high-end luxury vacation rental or an exclusive VIP guest house. Cash flows generated from Wakayama's booming premium tourism can <strong>fully cover the carrying costs of both estates</strong>.</p>
+      </div>
     </div>
     <div class="reveal" style="transition-delay:0.15s">
       <!-- Abstract villa visualization -->
@@ -1144,33 +1341,24 @@
             <stop offset="100%" style="stop-color:#061220;stop-opacity:1" />
           </linearGradient>
         </defs>
-        <!-- Sea background -->
         <rect width="420" height="300" fill="url(#seaGrad)" rx="12"/>
-        <!-- Horizon -->
         <line x1="0" y1="140" x2="420" y2="140" stroke="rgba(74,158,255,0.2)" stroke-width="0.5"/>
-        <!-- Sun setting -->
         <circle cx="310" cy="140" r="28" fill="rgba(201,169,110,0.18)" />
         <circle cx="310" cy="140" r="18" fill="rgba(201,169,110,0.3)" />
-        <!-- Cliff -->
         <path d="M0,220 L80,200 L100,180 L140,170 L200,168 L260,172 L300,185 L340,200 L420,215 L420,300 L0,300 Z" fill="rgba(30,30,40,0.9)"/>
-        <!-- Villa A outline -->
         <rect x="120" y="148" width="60" height="35" rx="4" fill="none" stroke="rgba(74,158,255,0.6)" stroke-width="1"/>
         <rect x="130" y="140" width="40" height="12" rx="2" fill="none" stroke="rgba(74,158,255,0.4)" stroke-width="0.5"/>
         <text x="150" y="178" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="9" fill="rgba(74,158,255,0.8)" letter-spacing="2">VILLA A</text>
-        <!-- Villa B outline -->
         <rect x="210" y="152" width="56" height="32" rx="4" fill="none" stroke="rgba(201,169,110,0.6)" stroke-width="1"/>
         <rect x="218" y="144" width="40" height="12" rx="2" fill="none" stroke="rgba(201,169,110,0.4)" stroke-width="0.5"/>
         <text x="238" y="180" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="9" fill="rgba(201,169,110,0.8)" letter-spacing="2">VILLA B</text>
-        <!-- Water reflection -->
         <path d="M0,141 Q210,160 420,141" fill="none" stroke="rgba(201,169,110,0.08)" stroke-width="20"/>
-        <!-- Stars -->
         <circle cx="50" cy="40" r="1" fill="rgba(255,255,255,0.4)"/>
         <circle cx="160" cy="25" r="1.5" fill="rgba(255,255,255,0.5)"/>
         <circle cx="260" cy="55" r="1" fill="rgba(255,255,255,0.3)"/>
         <circle cx="370" cy="30" r="1" fill="rgba(255,255,255,0.4)"/>
         <circle cx="90" cy="70" r="0.5" fill="rgba(255,255,255,0.3)"/>
         <circle cx="340" cy="80" r="1" fill="rgba(255,255,255,0.35)"/>
-        <!-- Ocean shimmers -->
         <path d="M20,155 Q40,152 60,155" fill="none" stroke="rgba(201,169,110,0.15)" stroke-width="1.5"/>
         <path d="M350,160 Q370,157 390,160" fill="none" stroke="rgba(201,169,110,0.12)" stroke-width="1"/>
       </svg>
@@ -1182,53 +1370,74 @@
     <div class="villa-card">
       <div class="villa-num">Lot 01 · 独立所有権 · Independent Title</div>
       <div class="villa-name">Villa A</div>
-      <div class="villa-role">プライベート断崖邸宅</div>
-      <p class="villa-desc">
-        太平洋の彼方に佇む、あなたの私的宮殿と高級社交の場。スマートエコ・マイクログリッドシステムが、日本不在時も自動で温湿度調整・維持記録・木造構造の保護を行う。<br><br>
-        アジアサミットを開くリビングにも、黒潮の夕景を前に独り沈思する禅の間にもなる。
-      </p>
-      <div class="villa-footer">100% 独立所有権 · 視線完全分離設計 · スマートグリッド守護</div>
+      <div class="villa-role">プライベート断崖邸宅 ／ 私密绝壁行宫 ／ Private Cliffside Sanctuary</div>
+      <div class="villa-desc">
+        <span>它既是您守望太平洋的隐秘城堡，也是接待核心圈层的高规格社交王座。离网微电网系统在您离境日本期间，会全程自动调控温湿度、生成运维云端记录并精密呵护纯木建筑。</span>
+        <span>太平洋の彼方に佇む、あなたの私的宮殿と高級社交の場。スマートエコ・マイクログリッドシステムが、日本不在時も自動で温湿度調整・維持記録・木造構造の保護を行います。</span>
+        <span class="en">Your private citadel overlooking the boundless ocean. The intelligent eco-microgrid automatically monitors climate control and structure health logs during your absence from Japan.</span>
+      </div>
+      <div class="villa-footer">
+        100% 独立所有権 · 视线完全分离设计 · 智能微电网全程守护<br>
+        100% 独立所有権 · 視線完全分離設計 · スマートグリッド守護<br>
+        100% Independent Deed · Visual Separation Design · Smart Grid Defense
+      </div>
     </div>
 
     <!-- Villa B -->
     <div class="villa-card">
       <div class="villa-num">Lot 02 · 独立所有权 · Independent Title</div>
       <div class="villa-name">Villa B</div>
-      <div class="villa-role">高級ゲストハウス / キャッシュフロー資産</div>
-      <p class="villa-desc">
-        高級海景民泊またはVIP専用ゲストルーム——100%無人化スマートIoT鍵管理システムで、世界のどこにいても一タップで高資産ゲストをお迎えできる。<br><br>
-        和歌山の観光需要は堅調に拡大中、Villa B の賃貸収益で<strong style="color:var(--text);font-weight:400">2棟エステートの年間保有コストを完全にカバー</strong>し、資産が自律的に収益を生む。
-      </p>
-      <div class="villa-footer">資産自律収益 · IoT完全無人管理 · キャッシュフロー安定</div>
+      <div class="villa-role">高级奢旅民宿 / 自主现金流资产 ／ Premium Hospitality Asset</div>
+      <div class="villa-desc">
+        <span>定位为高端奢华海景民宿或VIP密友客房——搭载100%无人化物联网安全锁管理系统，让您无论身处全球何地，皆能一键接入、远程托管高净值房客。和歌山的顶级奢旅需求持续狂飙，Villa B带来的稳健租金能轻松覆盖全庄园开支。</span>
+        <span>高級海景民泊またはVIP専用ゲストルーム——100%無人化スマートIoT鍵管理システムで、世界のどこにいても一タップで高資産ゲストをお迎え。和歌山の観光需要は拡大中、Villa Bの賃貸収益で2棟の保有コストを完全相殺。</span>
+        <span class="en">An upscale ocean-view villa or elite guest suite. Operates via a 100% automated IoT lock system, permitting one-tap guest management from anywhere globally. Rental income from Wakayama’s expanding luxury market generates consistent cash flows.</span>
+      </div>
+      <div class="villa-footer">
+        资产自主收益 · IoT全流程远程智控 · 充沛现金流护航<br>
+        資産自律収益 · IoT完全無人管理 · キャッシュフロー安定<br>
+        Self-Sustaining Yield · IoT Remote Operation · Robust Cash Flow Protection
+      </div>
     </div>
 
     <!-- Price Card -->
     <div class="villa-card price-card">
-      <div class="price-badge">⟡ 二度と訪れない好機</div>
+      <div class="price-badge">⟡ 二度と訪れない好機 · 绝无仅有的窗口期 · Once-in-a-Lifetime Entry</div>
       <div class="price-main">¥25,000,000</div>
-      <div class="price-unit">JPY · 2棟合計総額</div>
-      <p class="price-tagline">2,500万円で<br>2棟の断崖海景邸宅の完全所有権を手に入れる</p>
+      <div class="price-unit">JPY · 2棟合計総額 ／ 两栋合并全款总价 ／ Total Package Price</div>
+      <div class="price-tagline">
+        仅需2,500万日元，一揽子彻底据有两栋断崖海景别墅的永久产权。<br>
+        2,500万円で、2棟の断崖海景邸宅の完全所有権を手に入れる。<br>
+        Acquire full deeds to two premium cliffside villas for a combined total of ¥25M JPY.
+      </div>
 
       <div class="price-compare">
         <div class="compare-item">
-          <strong>VS 東京：</strong>都内20㎡の古いワンルームマンション相当——ここでは国立公園級の断崖高台2棟の永久主権に変わる。
+          <strong>VS 東京 Core：</strong>都内心脏地带仅等同于一套20㎡的陈旧单身公寓——而在此处，它将蜕变为国家公园级绝壁高台两栋大宅的永久神圣领权。
         </div>
         <div class="compare-item">
-          <strong>VS 資産減価：</strong>輸入スポーツカー2〜3年分の減価償却に相当——しかし太平洋の断崖は、稀少性が増すほど価値が高まる。
+          <strong>VS 资产减价：</strong>仅相当于一辆进口超跑2至3年的纯粹折旧费——但太平洋的稀缺悬崖地块，其不可复制的物理防御力时间越长越显珍贵。
         </div>
       </div>
 
-      <p class="price-note">※ 日本における海岸高台の別荘建築許可は事実上永久に封鎖済み。この種の資産の物理的な不可複製性は日々増大し、機を逸すれば永遠の後悔となる。</p>
+      <p class="price-note">
+        ※ 日本の海岸高台における別荘建築許可は事実上永久に封鎖済み。この種の資産の物理的な不可複製性は日々増大し、機を逸すれば永遠の後悔となります。<br>
+        ※ 日本高绝壁海岸线建筑开发许可实际上已被永久关停。此类重资产的物理绝对稀缺性与日俱增，一旦错过窗口，便再无可能寻得同类替代品。
+      </p>
     </div>
   </div>
 </section>
 
 <!-- MANAGEMENT SECTION -->
 <section>
-  <span class="section-label reveal">グローバル遠隔管理 · Global Remote Control</span>
-  <h2 class="section-title reveal">海外にいても<br><em>すべて安心</em></h2>
+  <span class="section-label reveal">グローバル遠隔管理 · Global Remote Control · 跨国无感远程托管</span>
+  <h2 class="section-title reveal">
+    海外にいても、<em>すべて安心</em>
+    <span class="title-sub">身在海外，资产依然于太平洋畔巍然运转 ／ Seamless Sovereignty From Anywhere On Earth</span>
+  </h2>
 
   <div class="mgmt-grid">
+    <!-- Left Dashboard Mock -->
     <div class="mgmt-dashboard reveal">
       <div class="mgmt-dash-header">
         <div class="traffic-lights">
@@ -1236,52 +1445,75 @@
           <div class="tl y"></div>
           <div class="tl g"></div>
         </div>
-        <span class="dash-title">黒潮エステート · リモート管理ダッシュボード</span>
+        <span class="dash-title">黒潮エステート · リモート管理 ／ 远程资产看板 ／ Remote Control Console</span>
       </div>
       <div class="mgmt-dash-body">
         <div class="dash-row">
-          <span class="dash-row-label"><div class="dash-dot green"></div>スマートエコグリッド</span>
+          <span class="dash-row-label"><div class="dash-dot green"></div>离网智能生态微电网 ／ スマートエコグリッド ／ Off-Grid Eco Smart Microgrid</span>
           <span class="dash-status green">100% Active</span>
         </div>
         <div class="dash-row">
-          <span class="dash-row-label"><div class="dash-dot blue"></div>自動除湿システム</span>
+          <span class="dash-row-label"><div class="dash-dot blue"></div>中央AI恒温除湿系统 ／ 自動除湿システム ／ AI Climate Control</span>
           <span class="dash-status blue">Optimal · 42%RH</span>
         </div>
         <div class="dash-row">
-          <span class="dash-row-label"><div class="dash-dot white"></div>IoTセキュリティ錠システム</span>
+          <span class="dash-row-label"><div class="dash-dot white"></div>IoT安全防御锁链 ／ IoTセキュリティ錠 ／ IoT Security Locking System</span>
           <span class="dash-status white">Secured</span>
         </div>
         <div class="dash-row">
-          <span class="dash-row-label"><div class="dash-dot green"></div>月次メンテナンスログ</span>
+          <span class="dash-row-label"><div class="dash-dot green"></div>月度全维度巡检日志 ／ 月次メンテナンスログ ／ Monthly Maintenance Log</span>
           <span class="dash-status green">Completed</span>
         </div>
         <div class="dash-row">
-          <span class="dash-row-label"><div class="dash-dot blue"></div>Villa B · 予約状況</span>
-          <span class="dash-status blue">予約 2件</span>
+          <span class="dash-row-label"><div class="dash-dot blue"></div>Villa B 客房预订状态 ／ Villa B・予約状況 ／ Villa B Booking Status</span>
+          <span class="dash-status blue">2 Active Booking</span>
         </div>
       </div>
     </div>
 
+    <!-- Right Bullet Text -->
     <div class="mgmt-text reveal" style="transition-delay:0.15s">
-      <p>
-        The Kuroshio Twins を所有することは、須美江に住む必要を意味しない。<strong>完全クローズドキー管理サービス</strong>が、不在時もエステートを完璧な状態で太平洋の高台に保ち続ける。
-      </p>
+      <div class="mgmt-p-block">
+        <p>据有黑潮双墅，绝不代表您必须时刻常驻于须美江。<strong>全封闭闭环管家式的全托式托管服务</strong>，能确保即使您常年身处海外，庄园依然在太平洋绝壁之巅维持最巅峰的战备状态。</p>
+        <p style="color: rgba(255,255,255,0.55);">The Kuroshio Twins を所有することは、須美江に住む必要を意味しません。<strong>完全クローズドキー管理サービス</strong>が、不在時もエステートを完璧な状態で太平洋の高台に保ち続けます。</p>
+        <p class="en">Owning The Kuroshio Twins requires zero mandatory physical presence. A comprehensive <strong>closed-loop concierge management framework</strong> keeps your premium real estate in mint condition atop its Pacific throne indefinitely.</p>
+      </div>
       <div class="mgmt-bullets">
+        <!-- Bullet 1 -->
         <div class="mgmt-bullet">
           <div class="mgmt-bullet-icon">🔋</div>
-          <div>エコ・マイクログリッドが24時間365日自動稼働。太陽光と蓄電池が協調供電し、年間の光熱費コストはほぼゼロ。</div>
+          <div class="bullet-lang">
+            <span>智能绿色微电网365天全天候自律呼吸。太阳能与高能级储能电池精密协同供电，全年待机基本无公网电费消耗。</span>
+            <span>エコ・マイクログリッドが24時間365日自動稼働。太陽光と蓄電池が協調供電し、年間の光熱費コストはほぼゼロ。</span>
+            <span class="en">The intelligent microgrid hums autonomously 24/7/365. Solar panels and battery reserves seamlessly collaborate, plunging yearly standby grid costs to near-zero.</span>
+          </div>
         </div>
+        <!-- Bullet 2 -->
         <div class="mgmt-bullet">
           <div class="mgmt-bullet-icon">🌡️</div>
-          <div>自動温湿度制御システムが日本の木造建築を精密に守護し、塩害腐食と高額修繕から解放される。</div>
+          <div class="bullet-lang">
+            <span>高度集成的环境气象感应模组自动接管新风与除湿，将经典的日本纯木质大宅悉心庇护，令您彻底告别传统沿海地产的盐害盐蚀痛点与不确定性修缮开支。</span>
+            <span>自動温湿度制御システムが日本の木造建築を精密に守護し、塩害腐食と高額修繕から解放されます。</span>
+            <span class="en">Automated moisture-control loops actively shield the elite Japanese woodwork structure, neutralizing sea-salt corrosion anxieties and avoiding sudden renovation overheads.</span>
+          </div>
         </div>
+        <!-- Bullet 3 -->
         <div class="mgmt-bullet">
           <div class="mgmt-bullet-icon">📱</div>
-          <div>IoTスマートロックと100%無人リモートチェックインシステムで、Villa B の高級民泊運営に人手は一切不要。</div>
+          <div class="bullet-lang">
+            <span>全面数字化的IoT智能锁与无缝远程云端入住身份核验系统，使您在世界的任何一个角落，都能优雅掌控Villa B的奢华民宿流转，期间完全无需耗费人工。</span>
+            <span>IoTスマートロックと100%無人リモートチェックインシステムで、Villa B の高級民泊運営に人手は一切不要。</span>
+            <span class="en">Total digitised IoT security layers paired with cloud-enabled check-in workflows render operations for Villa B completely hands-free, no matter which continent you reside upon.</span>
+          </div>
         </div>
+        <!-- Bullet 4 -->
         <div class="mgmt-bullet">
           <div class="mgmt-bullet-icon">🧹</div>
-          <div>高級清掃・庭園管理から構造年次点検まで、クローズドループのワンストップ管理サービスを世界中どこからでも。</div>
+          <div class="bullet-lang">
+            <span>从高标标准清洁、日式庭院高雅修剪到建筑结构的结构年检，全流程全托式的一站式管家网络，在世界的任何一个角落，都由我们为您全权落地。</span>
+            <span>高級清掃・庭園管理から構造年次点検まで、クローズドループのワンストップ管理サービスを世界中どこからでも。</span>
+            <span class="en">From deep architectural sanitation and boutique landscaping to structural health audits: leverage our holistic management framework with premium precision from anywhere globally.</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1293,40 +1525,45 @@
 <!-- INQUIRE SECTION -->
 <section class="inquire-section" id="inquire">
   <div class="inquire-inner">
-    <span class="section-label reveal">物件取得のご相談 · Acquire The Twins</span>
-    <h2 class="section-title reveal">申请 VIP<br><em>専用アクセスを申請</em></h2>
-    <p class="inquire-sub reveal">
-      The Kuroshio Twins は、真剣なご購入希望者のみにご案内しております。<br>以下のフォームにご記入後、担当アドバイザーが専用の高精細資料パッケージを作成し、1対1の非公開商談をご案内いたします。
-    </p>
+    <span class="section-label reveal">物件取得のご相談 · Acquire The Twins · 专属席位定向申购</span>
+    <h2 class="section-title reveal">
+      専用アクセスを申請
+      <span class="title-sub">申请 VIP 专属资产档案与商谈渠道 ／ Request Private VIP Asset Access</span>
+    </h2>
+    <div class="inquire-sub reveal">
+      <span>黑潮双墅（The Kuroshio Twins）仅面向通过定向初审的高净值买家非公开披露详情。提交下表后，您的资深私人资产顾问将在24小时内为您生成高精度无损实景数字资料包，并由专人联络对接一对一非公开绝密商谈。</span>
+      <span>The Kuroshio Twins は、真剣なご購入希望者のみにご案内しております。以下のフォームにご記入後、担当アドバイザーが専用の高精細資料パッケージを作成し、1対1の非公開商談をご案内いたします。</span>
+      <span class="en">The Kuroshio Twins is disclosed selectively to verified prospects via non-public briefings. Upon submitting the dossier registry below, an executive asset advisor will deliver a private digital assets portfolio package to facilitate a 1-on-1 confidential consultation.</span>
+    </div>
 
     <div class="inquire-form reveal">
       <div class="form-grid">
         <div class="form-group">
-          <label class="form-label">お名前 · Full Name</label>
-          <input type="text" class="form-input" placeholder="山田 太郎">
+          <label class="form-label">お名前 · Full Name · 您的贵姓尊名</label>
+          <input type="text" class="form-input" placeholder="山田 太郎 / Your Name">
         </div>
         <div class="form-group">
-          <label class="form-label">メールアドレス · Email</label>
+          <label class="form-label">メールアドレス · Email · 电子邮箱</label>
           <input type="email" class="form-input" placeholder="your@email.com">
         </div>
       </div>
       <div class="form-group">
-        <label class="form-label">お電話番号 · Phone</label>
-        <input type="text" class="form-input" placeholder="090-0000-0000">
+        <label class="form-label">お電話番号 · Phone · 联络电话</label>
+        <input type="text" class="form-input" placeholder="+81 090-0000-0000">
       </div>
       <div class="form-group">
-        <label class="form-label">ご見学方法のご希望</label>
+        <label class="form-label">ご見学方法のご希望 ／ 期望的资产视察形态 ／ Preferred Briefing Mode</label>
         <select class="form-input">
-          <option>高精細リモート動画内覧（オンライン）</option>
-          <option>現地VIPプライベート内覧（空港送迎付き）</option>
-          <option>デジタル資産詳細資料パッケージ</option>
+          <option>高精細リモート動画内覧（オンライン） ／ 跨国远程高精度实景4K视频内览（线上）／ Ultra-HD Remote Virtual Briefing (Online)</option>
+          <option>現地VIPプライベート内覧（空港送迎付き）／ 现地VIP专属非公开实地私密内览（含专属机场接送服务）／ On-Site VIP Private Tour (With Airport Escort)</option>
+          <option>デジタル資産詳細資料パッケージ ／ 直接收取全套数字化高清资产机密档案包 ／ Digital Information & Asset Dossier Package Only</option>
         </select>
       </div>
       <div class="form-group">
-        <label class="form-label">ご質問・ご希望（任意）</label>
-        <input type="text" class="form-input" placeholder="ご質問やご都合のよい日時などをお聞かせください...">
+        <label class="form-label">ご質問・ご希望 ／ 附加诉求或特定时间规划（选填）／ Additional Requests (Optional)</label>
+        <input type="text" class="form-input" placeholder="ご質問やご都合のよい日時などをお聞かせください... / Specific timelines or queries...">
       </div>
-      <button class="form-submit" onclick="this.textContent='✓ 申請完了 — 担当者より折り返しご連絡いたします'; this.style.background='var(--emerald)'; this.style.color='var(--bg)';">
+      <button class="form-submit" onclick="this.textContent='✓ 申請完了 — 担当者より折り返しご連絡いたします / Registration Complete — Our Advisor Will Reach Out Shortly'; this.style.background='var(--emerald)'; this.style.color='var(--bg)';">
         Request Exclusive Asset Access · 申请专属资产访问权限
       </button>
     </div>
@@ -1336,8 +1573,8 @@
 <!-- FOOTER -->
 <footer>
   <span class="footer-brand">THE KUROSHIO TWINS · 黒潮断崖邸宅</span>
-  <span>和歌山県・須美江 · 断崖高台エステート · 日本</span>
-  <span>© 2026 · 世界で唯一人のバイヤーへ</span>
+  <span>和歌山県・須美江 · 断崖高台エステート · 太平洋第一排主权资产 · Japan</span>
+  <span>© 2026 · 世界で唯一人のバイヤーへ · For the Chosen One. All Rights Reserved.</span>
 </footer>
 
 <script>
@@ -1369,7 +1606,7 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(e.target);
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+}, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
